@@ -5,6 +5,7 @@ const BASE_URL = "https://www.1080solutions.co.uk";
 const PATHS = [
   "/",
   "/smart-home-glasgow",
+  "/smart-home-whitecraigs",
   "/control4-glasgow",
   "/home-automation-glasgow",
   "/smart-lighting-glasgow",
