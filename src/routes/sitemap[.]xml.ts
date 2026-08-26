@@ -19,6 +19,7 @@ const PATHS = [
   "/about",
   "/faq",
   "/contact",
+  "/privacy",
   "/projects",
   "/projects/whitecraigs-glasgow",
 ];

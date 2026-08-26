@@ -41,4 +41,14 @@ the deploy command. The production branch is `main`.
 - Nitro
 - Cloudflare Workers
 
+## Private visitor alerts
+
+The root layout sends one cookie-free visit signal per page lifetime to
+`/api/visitor-alert`. On Vercel production, the route uses Vercel's approximate
+city header and posts a short message to a private Google Chat space.
+
+Create a Google Chat incoming webhook and add its complete URL as the server-only
+`GOOGLE_CHAT_WEBHOOK_URL` environment variable in Vercel. Enable it for Production
+only. Never commit the webhook URL or expose it with a `VITE_` prefix.
+
 See [MIGRATION.md](./MIGRATION.md) for the preserved route inventory and launch checklist.
