@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { SiteHeader } from "../components/site/SiteHeader";
 import { SiteFooter } from "../components/site/SiteFooter";
+import { VisitorAlertBeacon } from "../components/site/VisitorAlertBeacon";
 import { localBusinessJsonLd } from "../lib/seo";
 
 function NotFoundComponent() {
@@ -123,6 +124,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <VisitorAlertBeacon />
       <div className="flex min-h-screen flex-col">
         <SiteHeader />
         <main className="flex-1">

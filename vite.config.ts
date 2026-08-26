@@ -8,7 +8,7 @@ import tsConfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [
     tanstackStart({ server: { entry: "server" } }),
-    nitro(process.env.VERCEL ? {} : { preset: "cloudflare_module" }),
+    nitro(process.env["VERCEL"] ? {} : { preset: "cloudflare_module" }),
     viteReact(),
     tailwindcss(),
     tsConfigPaths(),

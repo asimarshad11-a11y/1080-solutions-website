@@ -168,6 +168,14 @@ export function SiteFooter() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/privacy"
+                  className="text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Privacy
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
