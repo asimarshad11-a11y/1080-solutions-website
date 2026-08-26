@@ -7,9 +7,10 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { AnalyticsConsent } from "../components/site/AnalyticsConsent";
 import { SiteHeader } from "../components/site/SiteHeader";
 import { SiteFooter } from "../components/site/SiteFooter";
 import { VisitorAlertBeacon } from "../components/site/VisitorAlertBeacon";
@@ -125,6 +126,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <VisitorAlertBeacon />
+      <AnalyticsConsent />
       <div className="flex min-h-screen flex-col">
         <SiteHeader />
         <main className="flex-1">
