@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 1080 Solutions website
 
-## Getting Started
+Production website for 1080 Solutions / Algo AV, serving Glasgow and Central Scotland.
 
-First, run the development server:
+## Local development
 
-```bash
+Use a current Node.js LTS release and npm.
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Quality checks:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run lint
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Cloudflare Workers
 
-## Learn More
+The production build targets the Nitro `cloudflare_module` preset. Build before running the
+generated Wrangler configuration:
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+npm run build
+npm run preview:worker
+npm run deploy
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For Cloudflare Workers Builds, use `npm run build` as the build command and `npm run deploy` as
+the deploy command. The production branch is `main`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Stack
 
-## Deploy on Vercel
+- TanStack Start
+- TypeScript
+- React
+- Tailwind CSS
+- Nitro
+- Cloudflare Workers
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [MIGRATION.md](./MIGRATION.md) for the preserved route inventory and launch checklist.
