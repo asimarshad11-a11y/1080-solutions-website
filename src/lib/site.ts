@@ -1,9 +1,14 @@
 export const SITE_NAME = "1080 Solutions";
-export const SITE_LEGAL_NAME = "1080 Solutions Ltd";
+export const SITE_LEGAL_NAME = "Algo AV Limited";
 export const SITE_URL = "https://www.1080solutions.co.uk";
 export const PHONE_DISPLAY = "0800 772 0012";
 export const PHONE_TEL = "tel:08007720012";
 export const EMAIL = "sales@1080solutions.co.uk";
+export const COMPANY_NUMBER = "SC824474";
+export const COMPANY_JURISDICTION = "Scotland";
+export const FACEBOOK_URL = "https://www.facebook.com/1080cctv/";
+export const INSTAGRAM_URL = "https://www.instagram.com/1080solutionsltd/";
+export const SOCIAL_URLS = [FACEBOOK_URL, INSTAGRAM_URL] as const;
 
 export const AREAS = [
   "Glasgow",

@@ -1,6 +1,18 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { AREAS, EMAIL, PHONE_DISPLAY, PHONE_TEL, SERVICES, SITE_LEGAL_NAME } from "@/lib/site";
+import {
+  AREAS,
+  COMPANY_JURISDICTION,
+  COMPANY_NUMBER,
+  EMAIL,
+  FACEBOOK_URL,
+  INSTAGRAM_URL,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  SERVICES,
+  SITE_LEGAL_NAME,
+  SITE_NAME,
+} from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -43,6 +55,24 @@ export function SiteFooter() {
               <p className="flex items-center gap-2.5 text-muted-foreground">
                 <MapPin className="h-4 w-4 shrink-0 text-primary" aria-hidden />
                 Glasgow &amp; Central Scotland
+              </p>
+              <p className="flex gap-4 pt-1 text-xs font-semibold uppercase tracking-wider">
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  Instagram
+                </a>
+                <a
+                  href={FACEBOOK_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  Facebook
+                </a>
               </p>
             </div>
           </div>
@@ -147,7 +177,11 @@ export function SiteFooter() {
             Areas served: {AREAS.join(" · ")}
           </p>
           <p className="mt-3 text-xs text-muted-foreground">
-            © {new Date().getFullYear()} {SITE_LEGAL_NAME} trading as Algo AV. All rights reserved.
+            © {new Date().getFullYear()} {SITE_LEGAL_NAME} trading as {SITE_NAME}. All rights
+            reserved.
+          </p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Registered in {COMPANY_JURISDICTION} · Company no. {COMPANY_NUMBER}
           </p>
         </div>
       </div>

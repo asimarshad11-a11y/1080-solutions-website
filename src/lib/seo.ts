@@ -1,4 +1,14 @@
-import { AREAS, EMAIL, PHONE_DISPLAY, SITE_NAME, SITE_URL } from "./site";
+import defaultShareImage from "../assets/hero-smart-home.jpg";
+import {
+  AREAS,
+  COMPANY_NUMBER,
+  EMAIL,
+  PHONE_DISPLAY,
+  SITE_LEGAL_NAME,
+  SITE_NAME,
+  SITE_URL,
+  SOCIAL_URLS,
+} from "./site";
 
 type MetaEntry = Record<string, string>;
 type LinkEntry = { rel: string; href: string; type?: string };
@@ -14,6 +24,15 @@ export interface SeoHeadOptions {
   /** Breadcrumb trail items after Home. */
   breadcrumbs?: { name: string; path: string }[];
   ogType?: string;
+  image?: string;
+  imageAlt?: string;
+}
+
+const BUSINESS_ID = `${SITE_URL}/#business`;
+const DEFAULT_IMAGE_ALT = "Smart home interior designed and integrated by 1080 Solutions";
+
+function absoluteUrl(path: string): string {
+  return new URL(path, `${SITE_URL}/`).toString();
 }
 
 export function seoHead(opts: SeoHeadOptions): {
@@ -22,16 +41,24 @@ export function seoHead(opts: SeoHeadOptions): {
   scripts: ScriptEntry[];
 } {
   const url = `${SITE_URL}${opts.path}`;
+  const image = absoluteUrl(opts.image ?? defaultShareImage);
+  const imageAlt = opts.imageAlt ?? DEFAULT_IMAGE_ALT;
   const meta: MetaEntry[] = [
     { title: opts.title },
     { name: "description", content: opts.description },
+    { property: "og:site_name", content: SITE_NAME },
+    { property: "og:locale", content: "en_GB" },
     { property: "og:title", content: opts.title },
     { property: "og:description", content: opts.description },
     { property: "og:type", content: opts.ogType ?? "website" },
     { property: "og:url", content: url },
+    { property: "og:image", content: image },
+    { property: "og:image:alt", content: imageAlt },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: opts.title },
     { name: "twitter:description", content: opts.description },
+    { name: "twitter:image", content: image },
+    { name: "twitter:image:alt", content: imageAlt },
   ];
 
   const links: LinkEntry[] = [{ rel: "canonical", href: url }];
@@ -67,11 +94,20 @@ export function localBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "1080 Solutions Ltd (Algo AV)",
+    "@id": BUSINESS_ID,
+    name: SITE_NAME,
+    legalName: SITE_LEGAL_NAME,
     alternateName: "Algo AV",
     url: SITE_URL,
     telephone: PHONE_DISPLAY,
     email: EMAIL,
+    image: absoluteUrl(defaultShareImage),
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "Companies House",
+      value: COMPANY_NUMBER,
+    },
+    sameAs: SOCIAL_URLS,
     description:
       "Premium smart home, home cinema, smart lighting, multi-room AV, networking and security integrator serving Glasgow and Central Scotland.",
     areaServed: AREAS.map((area) => ({ "@type": "Place", name: area })),
@@ -99,7 +135,9 @@ export function serviceJsonLd(opts: { name: string; description: string; path: s
     url: `${SITE_URL}${opts.path}`,
     provider: {
       "@type": "ProfessionalService",
-      name: `${SITE_NAME} (Algo AV)`,
+      "@id": BUSINESS_ID,
+      name: SITE_NAME,
+      legalName: SITE_LEGAL_NAME,
       url: SITE_URL,
       telephone: PHONE_DISPLAY,
       email: EMAIL,

@@ -153,7 +153,7 @@ export const Route = createFileRoute("/faq")({
     seoHead({
       title: "Smart Home FAQs | Control4, Lighting & AV | 1080 Solutions",
       description:
-        "Answers on smart home installation, Control4, Lutron lighting, home cinema, networking, CCTV, project process and system takeovers in Glasgow and Central Scotland.",
+        "Clear answers about smart homes, Control4, Lutron lighting, home cinema, networking, CCTV, project delivery and system takeovers across Glasgow.",
       path: "/faq",
       breadcrumbs: [
         { name: "Home", path: "/" },

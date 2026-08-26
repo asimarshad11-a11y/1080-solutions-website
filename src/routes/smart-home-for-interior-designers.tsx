@@ -46,9 +46,9 @@ const FAQS = [
 export const Route = createFileRoute("/smart-home-for-interior-designers")({
   head: () =>
     seoHead({
-      title: "Smart Home for Interior Designers | Glasgow & Scotland | 1080 Solutions",
+      title: "Smart Home for Interior Designers | Glasgow | 1080 Solutions",
       description:
-        "Discreet smart home technology for interior designers in Glasgow and Scotland: keypad finishes, lighting scenes, invisible speakers, concealed TVs, blinds, climate and rack concealment.",
+        "Discreet smart home integration for Glasgow interior designers: refined keypads, lighting scenes, invisible speakers, concealed TVs, blinds and climate.",
       path: "/smart-home-for-interior-designers",
       breadcrumbs: [
         { name: "Home", path: "/" },
