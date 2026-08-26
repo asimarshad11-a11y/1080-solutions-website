@@ -7,6 +7,8 @@ type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
 };
 
+const CANONICAL_ORIGIN = "https://www.1080solutions.co.uk";
+
 let serverEntryPromise: Promise<ServerEntry> | undefined;
 
 async function getServerEntry(): Promise<ServerEntry> {
@@ -16,6 +18,28 @@ async function getServerEntry(): Promise<ServerEntry> {
     );
   }
   return serverEntryPromise;
+}
+
+function canonicalRedirect(request: Request): Response | null {
+  const url = new URL(request.url);
+  const forwardedHost = request.headers.get("x-forwarded-host")?.split(",")[0]?.trim();
+  const host = forwardedHost || url.host;
+  const forwardedProto = request.headers.get("x-forwarded-proto")?.split(",")[0]?.trim();
+  const protocol = forwardedProto || url.protocol.replace(":", "");
+
+  if (host === "www.1080solutions.co.uk" && protocol === "https") return null;
+
+  // Only canonicalise requests for our production domain. Preview/local hosts must keep working.
+  if (host !== "1080solutions.co.uk" && host !== "www.1080solutions.co.uk") return null;
+
+  const target = new URL(`${url.pathname}${url.search}`, CANONICAL_ORIGIN);
+  return new Response(null, {
+    status: 301,
+    headers: {
+      Location: target.toString(),
+      "Cache-Control": "public, max-age=3600",
+    },
+  });
 }
 
 // h3 swallows in-handler throws into a normal 500 Response with body
@@ -47,6 +71,9 @@ function isH3SwallowedErrorBody(body: string): boolean {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const redirect = canonicalRedirect(request);
+      if (redirect) return redirect;
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
