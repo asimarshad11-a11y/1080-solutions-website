@@ -15,7 +15,7 @@ export const Route = createFileRoute("/about")({
     seoHead({
       title: "About 1080 Solutions | Smart Home & AV, Glasgow",
       description:
-        "1080 Solutions (Algo AV) is a Glasgow smart home, AV and security integrator serving Central Scotland — over a decade in the industry, 200+ residences completed.",
+        "Meet 1080 Solutions, Glasgow smart home, AV and security specialists serving Central Scotland, with 10+ years’ experience and 200+ homes completed.",
       path: "/about",
       breadcrumbs: [
         { name: "Home", path: "/" },
@@ -30,7 +30,7 @@ function AboutPage() {
     <>
       <PageHero
         eyebrow="About · Glasgow"
-        title="1080 Solutions — Algo AV."
+        title="About 1080 Solutions."
         lede="A smart home, AV and security integrator working from Glasgow across Central Scotland — from city townhouses and new builds to country estates."
         image={controlImage}
         imageAlt="Smart home control panel installed by 1080 Solutions"
@@ -44,7 +44,7 @@ function AboutPage() {
             <SectionHeading eyebrow="Who We Are" title="Engineers first, salespeople never." />
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground lg:pt-12">
               <p>
-                1080 Solutions Ltd — trading as Algo AV — has spent over a decade designing,
+                Algo AV Limited, trading as 1080 Solutions, has spent over a decade designing,
                 installing and maintaining smart home systems across Glasgow and Central Scotland,
                 completing more than 200 residences along the way.
               </p>

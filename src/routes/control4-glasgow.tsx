@@ -58,9 +58,9 @@ const FAQS = [
 export const Route = createFileRoute("/control4-glasgow")({
   head: () =>
     seoHead({
-      title: "Control4 Glasgow & Scotland | Control4 Smart Home Installer",
+      title: "Control4 Installer Glasgow & Scotland | 1080 Solutions",
       description:
-        "Control4 installer in Glasgow and Central Scotland. Design, installation, programming and support for whole-home Control4 automation, lighting, AV, cinema and security.",
+        "Control4 installer serving Glasgow and Central Scotland. Design, programming and support for whole-home automation, lighting, AV, cinema and security.",
       path: "/control4-glasgow",
       breadcrumbs: [
         { name: "Home", path: "/" },

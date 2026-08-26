@@ -125,7 +125,7 @@ function HomePage() {
             />
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground lg:pt-12">
               <p>
-                1080 Solutions Ltd is a smart home integrator working from Glasgow across Central
+                1080 Solutions is a smart home integrator working from Glasgow across Central
                 Scotland — from city townhouses and new builds in Whitecraigs and Newton Mearns to
                 country estates in Lanarkshire. We design, install and maintain complete home
                 automation systems built on{" "}

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AreasServed, CtaBand, CtaPrimary, SectionHeading } from "@/components/site/Sections";
 import { seoHead } from "@/lib/seo";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import whitecraigsImage from "@/assets/whitecraigs-cinema.jpg";
 import cinemaImage from "@/assets/home-cinema.jpg";
 
@@ -12,6 +13,8 @@ export const Route = createFileRoute("/projects/whitecraigs-glasgow")({
         "Case study: a 9.4.4 Dolby Atmos home cinema in Whitecraigs, Glasgow — M&K speakers, StormAudio processing, JVC projection and Control4 automation.",
       path: "/projects/whitecraigs-glasgow",
       ogType: "article",
+      image: whitecraigsImage,
+      imageAlt: "9.4.4 Dolby Atmos home cinema in Whitecraigs, Glasgow",
       breadcrumbs: [
         { name: "Home", path: "/" },
         { name: "Projects", path: "/projects" },
@@ -22,9 +25,15 @@ export const Route = createFileRoute("/projects/whitecraigs-glasgow")({
           "@context": "https://schema.org",
           "@type": "Article",
           headline: "A 9.4.4 Dolby Atmos Home Cinema in Whitecraigs, Glasgow",
+          url: `${SITE_URL}/projects/whitecraigs-glasgow`,
+          mainEntityOfPage: `${SITE_URL}/projects/whitecraigs-glasgow`,
           description:
             "Premium home cinema case study: M&K loudspeaker array, StormAudio ISR Fusion 20, JVC DLA-NZ8 with Panamorph anamorphic lens, 192-inch Projecta screen, Control4 automation and tunable-white architectural lighting.",
-          author: { "@type": "Organization", name: "1080 Solutions Ltd (Algo AV)" },
+          author: {
+            "@type": "Organization",
+            "@id": `${SITE_URL}/#business`,
+            name: SITE_NAME,
+          },
           about: { "@type": "Place", name: "Whitecraigs, Glasgow" },
         },
       ],

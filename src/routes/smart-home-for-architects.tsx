@@ -46,9 +46,9 @@ const FAQS = [
 export const Route = createFileRoute("/smart-home-for-architects")({
   head: () =>
     seoHead({
-      title: "Smart Home for Architects | Glasgow & Scotland | 1080 Solutions",
+      title: "Smart Home Systems for Architects | Glasgow | 1080 Solutions",
       description:
-        "Technology coordination for architects in Glasgow and Scotland: containment, lighting control, Control4, Lutron/KNX/DALI, AV, HVAC, security, drawings, first fix and commissioning.",
+        "Smart home and AV coordination for Glasgow architects: Control4, Lutron, lighting, containment, service drawings, first fix and commissioning.",
       path: "/smart-home-for-architects",
       breadcrumbs: [
         { name: "Home", path: "/" },
