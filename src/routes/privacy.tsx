@@ -55,10 +55,31 @@ function PrivacyPage() {
                 alert does not include the raw IP address or precise location.
               </p>
               <p className="mt-3">
-                This alert uses no cookie, local storage entry or persistent visitor identifier. We
-                use the information for our legitimate interest in understanding interest in our
-                services and managing website enquiries. Automated traffic and preview deployments
-                are filtered where possible.
+                This private visitor alert uses no cookie, local storage entry or persistent visitor
+                identifier. We use the information for our legitimate interest in understanding
+                interest in our services and managing website enquiries. Automated traffic and
+                preview deployments are filtered where possible.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-display text-xl font-semibold text-foreground">
+                Google Analytics and your choice
+              </h2>
+              <p className="mt-3">
+                We use Google Analytics 4 to understand how people use the website, but only after
+                you choose "Allow analytics" in our privacy notice. Until you agree, the Google
+                Analytics script is not loaded and analytics cookies are not set by this website.
+                If you choose "No thanks", the site continues to work normally without Google
+                Analytics.
+              </p>
+              <p className="mt-3">
+                If you allow analytics, Google Analytics may use identifiers and cookies such as
+                <code> _ga</code> to distinguish visits and produce aggregated usage statistics. We
+                configure advertising storage, ad user data and ad personalisation as denied. You
+                can change your choice at any time using the "Privacy choices" button shown on the
+                website. Withdrawing consent disables further analytics collection from this site
+                and removes accessible Google Analytics cookies.
               </p>
             </div>
 
@@ -77,11 +98,12 @@ function PrivacyPage() {
                 Service providers and retention
               </h2>
               <p className="mt-3">
-                We use Vercel to host the website and Google Workspace to receive private visitor
-                alerts and business communications. Visitor alert messages are accessible only to
-                authorised Workspace users and are deleted when they are no longer useful for
-                understanding recent website activity. Providers may process information under their
-                contractual safeguards and applicable data protection terms.
+                We use Vercel to host the website, Google Workspace to receive private visitor
+                alerts and business communications, and Google Analytics only where you have given
+                analytics consent. Visitor alert messages are accessible only to authorised
+                Workspace users and are deleted when they are no longer useful for understanding
+                recent website activity. Providers may process information under their contractual
+                safeguards and applicable data protection terms.
               </p>
             </div>
 
@@ -89,8 +111,9 @@ function PrivacyPage() {
               <h2 className="font-display text-xl font-semibold text-foreground">Your rights</h2>
               <p className="mt-3">
                 Depending on the circumstances, you may ask us for access, correction, deletion or
-                restriction, object to processing based on legitimate interests, or raise a concern
-                with the UK Information Commissioner&apos;s Office. Email{" "}
+                restriction, object to processing based on legitimate interests, withdraw consent
+                where processing relies on consent, or raise a concern with the UK Information
+                Commissioner&apos;s Office. Email{" "}
                 <a className="text-primary hover:underline" href={`mailto:${EMAIL}`}>
                   {EMAIL}
                 </a>{" "}
