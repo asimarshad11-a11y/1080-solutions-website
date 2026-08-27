@@ -13,7 +13,6 @@ const TOP_NAV = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
-  // Lock body scroll while the mobile menu is open.
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -37,7 +36,7 @@ export function SiteHeader() {
               SOLUTIONS
             </span>
             <span className="text-[0.65rem] font-medium tracking-[0.28em] text-muted-foreground">
-              ALGO AV · GLASGOW
+              GLASGOW · SCOTLAND
             </span>
           </span>
         </Link>
@@ -54,7 +53,6 @@ export function SiteHeader() {
             </Link>
           ))}
 
-          {/* Services dropdown */}
           <div className="group relative">
             <button
               type="button"
@@ -121,7 +119,6 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-border bg-background lg:hidden">
           <nav className="mx-auto max-w-7xl px-4 py-6 sm:px-6" aria-label="Mobile">
