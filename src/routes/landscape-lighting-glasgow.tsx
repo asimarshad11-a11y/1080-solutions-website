@@ -11,7 +11,7 @@ import {
 } from "@/components/site/Sections";
 import { faqJsonLd, seoHead, serviceJsonLd } from "@/lib/seo";
 import lightingImage from "@/assets/smart-lighting.jpg";
-import heroImage from "@/assets/hero-smart-home.jpg";
+import projectImage from "@/assets/landscape-lighting-deck.webp";
 
 const FAQS = [
   {
@@ -132,12 +132,12 @@ function LandscapeLightingPage() {
             </div>
           </div>
           <img
-            src={heroImage}
-            alt="Exterior architectural lighting integrated with a smart home system"
-            width={1920}
-            height={1080}
+            src={projectImage}
+            alt="Warm perimeter lighting integrated into a timber garden deck in Glasgow"
+            width={600}
+            height={450}
             loading="lazy"
-            className="aspect-video w-full rounded-lg border border-border object-cover"
+            className="aspect-[4/3] w-full rounded-lg border border-border object-cover"
           />
         </div>
       </section>
