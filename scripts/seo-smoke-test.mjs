@@ -99,7 +99,7 @@ const sitemapResponse = await fetchWorker("/sitemap.xml");
 check(sitemapResponse.status === 200, "sitemap.xml must return 200");
 const sitemap = await sitemapResponse.text();
 const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => decodeHtml(match[1]));
-check(urls.length === 20, `sitemap must contain 20 URLs (found ${urls.length})`);
+check(urls.length === 21, `sitemap must contain 21 URLs (found ${urls.length})`);
 check(new Set(urls).size === urls.length, "sitemap URLs must be unique");
 
 for (const url of urls) {
