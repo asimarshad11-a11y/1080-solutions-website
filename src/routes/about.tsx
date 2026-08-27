@@ -44,9 +44,14 @@ function AboutPage() {
             <SectionHeading eyebrow="Who We Are" title="Engineers first, salespeople never." />
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground lg:pt-12">
               <p>
-                Algo AV Limited, trading as 1080 Solutions, has spent over a decade designing,
-                installing and maintaining smart home systems across Glasgow and Central Scotland,
-                completing more than 200 residences along the way.
+                1080 Solutions is our primary customer-facing brand, with more than a decade of
+                experience designing, installing and maintaining smart home systems across Glasgow
+                and Central Scotland and more than 200 residences completed.
+              </p>
+              <p>
+                1080 Solutions Ltd supports the brand as our marketing entity, with Algo AV Limited
+                as the parent company behind the wider operation. For clients, architects and
+                contractors, the name on the project remains 1080 Solutions.
               </p>
               <p>
                 We work alongside architects, interior designers and main contractors from first
