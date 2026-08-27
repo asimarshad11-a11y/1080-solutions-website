@@ -4,8 +4,9 @@ import {
   COMPANY_NUMBER,
   EMAIL,
   PHONE_DISPLAY,
-  SITE_LEGAL_NAME,
+  SITE_MARKETING_ENTITY,
   SITE_NAME,
+  SITE_PARENT_COMPANY,
   SITE_URL,
   SOCIAL_URLS,
 } from "./site";
@@ -96,8 +97,12 @@ export function localBusinessJsonLd() {
     "@type": "ProfessionalService",
     "@id": BUSINESS_ID,
     name: SITE_NAME,
-    legalName: SITE_LEGAL_NAME,
-    alternateName: "Algo AV",
+    legalName: SITE_MARKETING_ENTITY,
+    alternateName: SITE_MARKETING_ENTITY,
+    parentOrganization: {
+      "@type": "Organization",
+      name: SITE_PARENT_COMPANY,
+    },
     url: SITE_URL,
     telephone: PHONE_DISPLAY,
     email: EMAIL,
@@ -109,7 +114,7 @@ export function localBusinessJsonLd() {
     },
     sameAs: SOCIAL_URLS,
     description:
-      "Premium smart home, home cinema, smart lighting, multi-room AV, networking and security integrator serving Glasgow and Central Scotland.",
+      "1080 Solutions is a Glasgow smart home, home cinema, smart lighting, multi-room AV, networking and security integrator serving Glasgow and Central Scotland.",
     areaServed: AREAS.map((area) => ({ "@type": "Place", name: area })),
     knowsAbout: [
       "Control4 home automation",
@@ -137,7 +142,11 @@ export function serviceJsonLd(opts: { name: string; description: string; path: s
       "@type": "ProfessionalService",
       "@id": BUSINESS_ID,
       name: SITE_NAME,
-      legalName: SITE_LEGAL_NAME,
+      legalName: SITE_MARKETING_ENTITY,
+      parentOrganization: {
+        "@type": "Organization",
+        name: SITE_PARENT_COMPANY,
+      },
       url: SITE_URL,
       telephone: PHONE_DISPLAY,
       email: EMAIL,
