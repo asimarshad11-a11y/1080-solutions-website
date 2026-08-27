@@ -1,6 +1,7 @@
 export const SITE_NAME = "1080 Solutions";
 export const SITE_MARKETING_ENTITY = "1080 Solutions Ltd";
 export const SITE_PARENT_COMPANY = "Algo AV Limited";
+export const SITE_LEGAL_NAME = SITE_PARENT_COMPANY;
 export const SITE_URL = "https://www.1080solutions.co.uk";
 export const PHONE_DISPLAY = "0800 772 0012";
 export const PHONE_TEL = "tel:08007720012";
