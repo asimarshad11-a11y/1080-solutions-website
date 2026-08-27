@@ -7,11 +7,13 @@ import {
   EMAIL,
   FACEBOOK_URL,
   INSTAGRAM_URL,
+  PARENT_COMPANY_NUMBER,
   PHONE_DISPLAY,
   PHONE_TEL,
   SERVICES,
-  SITE_LEGAL_NAME,
+  SITE_MARKETING_ENTITY,
   SITE_NAME,
+  SITE_PARENT_COMPANY,
 } from "@/lib/site";
 
 export function SiteFooter() {
@@ -29,7 +31,7 @@ export function SiteFooter() {
                   SOLUTIONS
                 </span>
                 <span className="text-[0.65rem] font-medium tracking-[0.28em] text-muted-foreground">
-                  ALGO AV · GLASGOW
+                  GLASGOW · SCOTLAND
                 </span>
               </span>
             </div>
@@ -112,70 +114,14 @@ export function SiteFooter() {
           <nav aria-label="Footer company">
             <h2 className="eyebrow">Company</h2>
             <ul className="mt-4 space-y-2.5 text-sm">
-              <li>
-                <Link
-                  to="/about"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/projects"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/projects/whitecraigs-glasgow"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Whitecraigs Home Cinema
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/smart-home-for-architects"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  For Architects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/smart-home-for-interior-designers"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  For Interior Designers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/faq"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  FAQs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/privacy"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Privacy
-                </Link>
-              </li>
+              <li><Link to="/about" className="text-muted-foreground transition-colors hover:text-foreground">About</Link></li>
+              <li><Link to="/projects" className="text-muted-foreground transition-colors hover:text-foreground">Projects</Link></li>
+              <li><Link to="/projects/whitecraigs-glasgow" className="text-muted-foreground transition-colors hover:text-foreground">Whitecraigs Home Cinema</Link></li>
+              <li><Link to="/smart-home-for-architects" className="text-muted-foreground transition-colors hover:text-foreground">For Architects</Link></li>
+              <li><Link to="/smart-home-for-interior-designers" className="text-muted-foreground transition-colors hover:text-foreground">For Interior Designers</Link></li>
+              <li><Link to="/faq" className="text-muted-foreground transition-colors hover:text-foreground">FAQs</Link></li>
+              <li><Link to="/contact" className="text-muted-foreground transition-colors hover:text-foreground">Contact</Link></li>
+              <li><Link to="/privacy" className="text-muted-foreground transition-colors hover:text-foreground">Privacy</Link></li>
             </ul>
           </nav>
         </div>
@@ -185,11 +131,13 @@ export function SiteFooter() {
             Areas served: {AREAS.join(" · ")}
           </p>
           <p className="mt-3 text-xs text-muted-foreground">
-            © {new Date().getFullYear()} {SITE_LEGAL_NAME} trading as {SITE_NAME}. All rights
-            reserved.
+            © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
           </p>
           <p className="mt-1 text-xs text-muted-foreground">
-            Registered in {COMPANY_JURISDICTION} · Company no. {COMPANY_NUMBER}
+            {SITE_MARKETING_ENTITY} · Registered in {COMPANY_JURISDICTION} · Company no. {COMPANY_NUMBER}
+          </p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Parent company: {SITE_PARENT_COMPANY} · Company no. {PARENT_COMPANY_NUMBER}
           </p>
         </div>
       </div>
