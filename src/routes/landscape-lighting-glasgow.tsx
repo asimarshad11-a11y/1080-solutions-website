@@ -9,9 +9,9 @@ import {
   PageHero,
   SectionHeading,
 } from "@/components/site/Sections";
-import { faqJsonLd, seoHead, serviceJsonLd } from "@/lib/seo";
 import lightingImage from "@/assets/smart-lighting.jpg";
 import projectImage from "@/assets/landscape-lighting-deck.webp";
+import outdoorKitchenImage from "@/assets/landscape-lighting-outdoor-kitchen.jpg";
 
 const FAQS = [
   {
@@ -131,14 +131,24 @@ function LandscapeLightingPage() {
               <CtaSecondary to="/lutron-glasgow">Lutron Glasgow</CtaSecondary>
             </div>
           </div>
-          <img
-            src={projectImage}
-            alt="Warm perimeter lighting integrated into a timber garden deck in Glasgow"
-            width={600}
-            height={450}
-            loading="lazy"
-            className="aspect-[4/3] w-full rounded-lg border border-border object-cover"
-          />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            <img
+              src={projectImage}
+              alt="Warm perimeter lighting integrated into a timber garden deck in Glasgow"
+              width={600}
+              height={450}
+              loading="lazy"
+              className="aspect-[4/3] w-full rounded-lg border border-border object-cover"
+            />
+            <img
+              src={outdoorKitchenImage}
+              alt="Warm landscape lighting around an outdoor kitchen and garden living area"
+              width={600}
+              height={800}
+              loading="lazy"
+              className="w-full rounded-lg border border-border object-cover"
+            />
+          </div>
         </div>
       </section>
 
