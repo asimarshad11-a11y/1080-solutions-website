@@ -10,7 +10,7 @@ import {
   SectionHeading,
 } from "@/components/site/Sections";
 import { faqJsonLd, seoHead, serviceJsonLd } from "@/lib/seo";
-import lightingImage from "@/assets/smart-lighting.jpg";
+import lightingImage from "@/assets/instagram/led-1.jpg";
 import heroImage from "@/assets/hero-smart-home.jpg";
 
 const FAQS = [

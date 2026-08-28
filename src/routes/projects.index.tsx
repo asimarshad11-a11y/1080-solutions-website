@@ -3,8 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { CtaBand, PageHero, SectionHeading } from "@/components/site/Sections";
 import { seoHead } from "@/lib/seo";
 import whitecraigsImage from "@/assets/whitecraigs-cinema.jpg";
-import lightingImage from "@/assets/smart-lighting.jpg";
-import heroImage from "@/assets/hero-smart-home.jpg";
+import lightingImage from "@/assets/instagram/led-2.jpg";
+import heroImage from "@/assets/instagram/lutron-1.jpg";
 
 export const Route = createFileRoute("/projects/")({
   head: () =>

@@ -9,7 +9,7 @@ import {
   SectionHeading,
 } from "@/components/site/Sections";
 import { seoHead, serviceJsonLd } from "@/lib/seo";
-import cinemaImage from "@/assets/home-cinema.jpg";
+import cinemaImage from "@/assets/instagram/cinema-1.jpg";
 import whitecraigsImage from "@/assets/whitecraigs-cinema.jpg";
 
 export const Route = createFileRoute("/home-cinema")({
