@@ -10,6 +10,7 @@ const PATHS = [
   "/control4-glasgow",
   "/home-automation-glasgow",
   "/smart-lighting-glasgow",
+  "/landscape-lighting-glasgow",
   "/lutron-glasgow",
   "/smart-home-for-architects",
   "/smart-home-for-interior-designers",
