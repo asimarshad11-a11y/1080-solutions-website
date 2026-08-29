@@ -9,6 +9,7 @@ import {
   PageHero,
   SectionHeading,
 } from "@/components/site/Sections";
+import { faqJsonLd, seoHead, serviceJsonLd } from "@/lib/seo";
 import lightingImage from "@/assets/smart-lighting.jpg";
 import projectImage from "@/assets/landscape-lighting-deck.webp";
 import outdoorKitchenImage from "@/assets/landscape-lighting-outdoor-kitchen.jpg";
