@@ -91,4 +91,9 @@ export const SERVICES: ServiceLink[] = [
     to: "/door-entry-and-access",
     blurb: "Managed access for family, staff and deliveries.",
   },
+  {
+    label: "Smart Home Newton Mearns",
+    to: "/smart-home-newton-mearns",
+    blurb: "Smart home design and installation for Newton Mearns properties.",
+  },
 ];
