@@ -39,9 +39,9 @@ const FAQS = [
 export const Route = createFileRoute("/lutron-glasgow")({
   head: () =>
     seoHead({
-      title: "Lutron Glasgow | Lighting & Blinds | 1080 Solutions",
+      title: "Lutron Installer Glasgow | Lighting & Blinds | 1080 Solutions",
       description:
-        "Lutron lighting control in Glasgow. Keypads, dimming, automated blinds and shading — designed, installed and programmed by 1080 Solutions.",
+        "Lutron installer in Glasgow for lighting control, keypads, dimming, automated blinds and shading — designed, installed and programmed by 1080 Solutions.",
       path: "/lutron-glasgow",
       breadcrumbs: [
         { name: "Home", path: "/" },
@@ -49,9 +49,9 @@ export const Route = createFileRoute("/lutron-glasgow")({
       ],
       jsonLd: [
         serviceJsonLd({
-          name: "Lutron Lighting Glasgow",
+          name: "Lutron Installer Glasgow",
           description:
-            "Lutron lighting control, keypads, dimming and motorised shading design and installation across Glasgow and Central Scotland.",
+            "Lutron lighting control, keypads, dimming and motorised shading design, installation and programming across Glasgow and Central Scotland.",
           path: "/lutron-glasgow",
         }),
         faqJsonLd(FAQS),
@@ -65,8 +65,8 @@ function LutronPage() {
     <>
       <PageHero
         eyebrow="Lutron · Glasgow"
-        title="Lutron lighting control in Glasgow."
-        lede="The reference standard for lighting control and motorised shading — designed, installed and programmed by 1080 Solutions across Glasgow and Central Scotland."
+        title="Lutron installer in Glasgow."
+        lede="Lutron lighting control and motorised shading, designed, installed and programmed by 1080 Solutions across Glasgow and Central Scotland."
         image={lightingImage}
         imageAlt="Lutron keypad and architectural lighting in a Glasgow home"
       >
@@ -86,8 +86,9 @@ function LutronPage() {
               </p>
               <p>
                 Behind the wall, Lutron's dimming is smooth, flicker-free and silent — the benchmark
-                the rest of the industry measures itself against. It's why Lutron sits at the heart
-                of most of the homes we build.
+                the rest of the industry measures itself against. As a Lutron installer in Glasgow,
+                we design the lighting, dimming and shading as part of the whole home rather than as
+                separate products.
               </p>
             </div>
           </div>
