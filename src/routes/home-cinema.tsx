@@ -5,19 +5,43 @@ import {
   CtaBand,
   CtaPrimary,
   CtaSecondary,
+  Faq,
   PageHero,
   SectionHeading,
 } from "@/components/site/Sections";
-import { seoHead, serviceJsonLd } from "@/lib/seo";
+import { faqJsonLd, seoHead, serviceJsonLd } from "@/lib/seo";
 import cinemaImage from "@/assets/home-cinema.jpg";
 import whitecraigsImage from "@/assets/whitecraigs-cinema.jpg";
+
+const FAQS = [
+  {
+    question: "Do you design dedicated home cinemas and media rooms in Glasgow?",
+    answer:
+      "Yes. We design everything from discreet family media rooms and TV-based cinema spaces to fully dedicated projection rooms with tiered seating, acoustic treatment, architectural lighting and immersive audio.",
+  },
+  {
+    question: "When should a home cinema be planned into a renovation or new build?",
+    answer:
+      "As early as possible. Speaker positions, screen size, projector throw, cable routes, ventilation, lighting circuits and seating sightlines are much easier to resolve before walls and ceilings are finished. We coordinate the technical design with the wider build team before installation begins.",
+  },
+  {
+    question: "Can Control4 run the whole cinema room?",
+    answer:
+      "Yes. Control4 can bring the projector or display, AV processor, sources, lighting, blinds, masking and volume into one simple interface, so starting a film can be reduced to a single scene or button press.",
+  },
+  {
+    question: "What is included in a properly designed Dolby Atmos cinema?",
+    answer:
+      "The room is designed as a complete system: speaker and subwoofer layout, amplification and processing, screen and projection, acoustic treatment, seating and sightlines, lighting, control and final calibration. The exact specification depends on the room and the performance target.",
+  },
+];
 
 export const Route = createFileRoute("/home-cinema")({
   head: () =>
     seoHead({
-      title: "Home Cinema Glasgow | Cinema Room Design | 1080 Solutions",
+      title: "Home Cinema Glasgow | Design & Installation | 1080 Solutions",
       description:
-        "Home cinema design and installation in Glasgow. Dolby Atmos cinema rooms, acoustic treatment and reference-grade projection from 1080 Solutions.",
+        "Home cinema design and installation in Glasgow. Dedicated cinema rooms and media rooms with Dolby Atmos, projection, acoustics, lighting and Control4.",
       path: "/home-cinema",
       breadcrumbs: [
         { name: "Home", path: "/" },
@@ -25,11 +49,12 @@ export const Route = createFileRoute("/home-cinema")({
       ],
       jsonLd: [
         serviceJsonLd({
-          name: "Home Cinema Glasgow",
+          name: "Home Cinema Design & Installation Glasgow",
           description:
-            "Dedicated home cinema design and installation in Glasgow: Dolby Atmos, reference projection, acoustic treatment and architectural lighting.",
+            "Dedicated home cinema and media room design and installation in Glasgow: Dolby Atmos, reference projection, acoustic treatment, architectural lighting and integrated control.",
           path: "/home-cinema",
         }),
+        faqJsonLd(FAQS),
       ],
     }),
   component: HomeCinemaPage,
@@ -40,8 +65,8 @@ function HomeCinemaPage() {
     <>
       <PageHero
         eyebrow="Home Cinema · Glasgow"
-        title="Home cinema in Glasgow."
-        lede="Reference-grade Dolby Atmos rooms, acoustically treated and calibrated by hand. An evening out, without leaving."
+        title="Home cinema design and installation in Glasgow."
+        lede="Dedicated Dolby Atmos cinema rooms and considered media rooms — designed around the acoustics, sightlines, lighting and control from the start."
         image={cinemaImage}
         imageAlt="Dedicated home cinema with star ceiling and tiered seating"
       >
@@ -101,6 +126,35 @@ function HomeCinemaPage() {
         </div>
       </section>
 
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <SectionHeading
+            eyebrow="Our Process"
+            title="Design the room before choosing the equipment."
+            lede="The best cinema specification comes from the room, the seating plan and the performance target — not from a shopping list."
+          />
+          <div className="mt-10">
+            <CardGrid
+              cols={3}
+              items={[
+                {
+                  title: "1. Survey & concept",
+                  text: "We assess the room, seating, screen size, sightlines, speaker geometry, noise control and how the cinema fits into the wider property.",
+                },
+                {
+                  title: "2. Technical design",
+                  text: "We define the audio layout, projection or display, amplification, acoustic treatment, lighting, control, rack space and cable requirements before first fix.",
+                },
+                {
+                  title: "3. Installation & calibration",
+                  text: "Equipment is installed, integrated and commissioned as one system, then the room is calibrated and the control experience refined for everyday use.",
+                },
+              ]}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Case study link */}
       <section className="border-t border-border bg-card/40">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
@@ -122,6 +176,15 @@ function HomeCinemaPage() {
             <div className="mt-8">
               <CtaPrimary to="/projects/whitecraigs-glasgow">Read the Case Study</CtaPrimary>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <SectionHeading eyebrow="Questions" title="Home cinema FAQs." />
+          <div className="mt-10">
+            <Faq items={FAQS} />
           </div>
         </div>
       </section>
