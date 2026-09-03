@@ -78,6 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#1f1f23" },
       { title: "Smart Home & AV Specialists Glasgow | 1080 Solutions" },
       {
         name: "description",
@@ -96,7 +97,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap",
       },
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon-1080.png", type: "image/png", sizes: "96x96" },
+      { rel: "shortcut icon", href: "/favicon-1080.png", type: "image/png" },
     ],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(localBusinessJsonLd()) }],
   }),
