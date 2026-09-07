@@ -117,7 +117,6 @@ for (const url of urls) {
   const robots = extractMeta(html, "name", "robots");
   const ogImage = extractMeta(html, "property", "og:image");
   const twitterImage = extractMeta(html, "name", "twitter:image");
-  const normalizedHtml = html.replaceAll("<!-- -->", "");
 
   pages.set(path, { html, title, description, canonical, schemas, nodes });
 
@@ -138,12 +137,10 @@ for (const url of urls) {
   );
   check(ogImage.startsWith(`${ORIGIN}/`), `${path}: absolute og:image is missing`);
   check(twitterImage === ogImage, `${path}: Twitter image must match og:image`);
-  check(!html.includes("1080 Solutions Ltd"), `${path}: obsolete legal name is still present`);
-  check(
-    normalizedHtml.includes("Algo AV Limited trading as 1080 Solutions"),
-    `${path}: current legal identity is missing from the footer`,
-  );
-  check(html.includes("SC824474"), `${path}: company number is missing`);
+  check(html.includes("1080 Solutions Ltd"), `${path}: marketing entity is missing`);
+  check(html.includes("SC566054"), `${path}: 1080 Solutions company number is missing`);
+  check(html.includes("Parent company: <!-- -->Algo AV Limited"), `${path}: parent company is missing`);
+  check(html.includes("SC824474"), `${path}: parent company number is missing`);
   check(
     html.includes("https://www.instagram.com/1080solutionsltd/"),
     `${path}: Instagram link is missing`,
@@ -164,8 +161,8 @@ const home = pages.get("/");
 const business = home?.nodes.find((node) => node["@type"] === "ProfessionalService");
 check(business?.["@id"] === `${ORIGIN}/#business`, "business @id is incorrect");
 check(business?.name === "1080 Solutions", "business name is incorrect");
-check(business?.legalName === "Algo AV Limited", "business legalName is incorrect");
-check(business?.identifier?.value === "SC824474", "Companies House identifier is incorrect");
+check(business?.legalName === "1080 Solutions Ltd", "business legalName is incorrect");
+check(business?.identifier?.value === "SC566054", "Companies House identifier is incorrect");
 check(
   business?.identifier?.propertyID === "Companies House",
   "Companies House identifier property is incorrect",

@@ -48,7 +48,7 @@ export const SERVICES: ServiceLink[] = [
   },
   {
     label: "Home Automation",
-    to: "/home-automation-glasgow",
+    to: "/smart-home-glasgow",
     blurb: "Lighting, climate, blinds and AV working as one system.",
   },
   {

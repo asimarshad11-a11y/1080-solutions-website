@@ -8,7 +8,6 @@ const PATHS = [
   "/smart-home-whitecraigs",
   "/smart-home-newton-mearns",
   "/control4-glasgow",
-  "/home-automation-glasgow",
   "/smart-lighting-glasgow",
   "/landscape-lighting-glasgow",
   "/lutron-glasgow",

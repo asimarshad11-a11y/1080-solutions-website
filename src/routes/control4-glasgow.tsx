@@ -117,12 +117,8 @@ function Control4Page() {
                 more about our wider{" "}
                 <Link to="/smart-home-glasgow" className="text-primary hover:underline">
                   smart home work in Glasgow
-                </Link>{" "}
-                or how we approach{" "}
-                <Link to="/home-automation-glasgow" className="text-primary hover:underline">
-                  whole-house automation
                 </Link>
-                .
+                , including our approach to whole-house automation.
               </p>
             </div>
           </div>

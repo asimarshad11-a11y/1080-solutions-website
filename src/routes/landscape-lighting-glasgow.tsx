@@ -40,7 +40,7 @@ const FAQS = [
 export const Route = createFileRoute("/landscape-lighting-glasgow")({
   head: () =>
     seoHead({
-      title: "Landscape Lighting Glasgow | Design & Installation | 1080 Solutions",
+      title: "Landscape Lighting Glasgow | 1080 Solutions",
       description:
         "Landscape lighting design and installation in Glasgow. Premium exterior lighting for gardens, pathways, entrances, driveways and outdoor living spaces.",
       path: "/landscape-lighting-glasgow",

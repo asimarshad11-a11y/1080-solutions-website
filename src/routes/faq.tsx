@@ -218,11 +218,7 @@ function FaqPage() {
         <Link to="/control4-glasgow" className="text-primary hover:underline">
           Control4 Glasgow
         </Link>{" "}
-        and{" "}
-        <Link to="/home-automation-glasgow" className="text-primary hover:underline">
-          home automation
-        </Link>{" "}
-        pages.
+        page, including our smart-home and whole-house automation overview.
       </Group>
 
       <Group eyebrow="Lighting & Shading" title="Lighting, Lutron and blinds." items={LIGHTING}>
