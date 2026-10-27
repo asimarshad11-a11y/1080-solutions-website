@@ -103,6 +103,7 @@ function SmartLightingPage() {
                 {
                   title: "KNX & DALI for larger homes",
                   text: "Open-protocol control and addressable fittings for homes that need engineering depth behind the calm surface.",
+                  to: "/knx-glasgow",
                 },
                 {
                   title: "Automated shading",
@@ -140,6 +141,7 @@ function SmartLightingPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <CtaSecondary to="/control4-glasgow">Control4 Glasgow</CtaSecondary>
               <CtaSecondary to="/smart-home-glasgow">Smart Home Glasgow</CtaSecondary>
+              <CtaSecondary to="/knx-glasgow">KNX Glasgow</CtaSecondary>
             </div>
           </div>
           <img

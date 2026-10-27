@@ -224,11 +224,17 @@ function SmartHomeGlasgowPage() {
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               We design and programme lighting on Lutron, KNX and DALI — soft warmth at breakfast,
               clarity in the kitchen, a low glow along the hallway at midnight. Keypads in bronze,
-              brass and stone finishes replace rows of plastic switches.
+              brass and stone finishes replace rows of plastic switches. For larger and more complex
+              projects, read how we design and commission{" "}
+              <Link to="/knx-glasgow" className="text-primary hover:underline">
+                KNX systems in Glasgow
+              </Link>
+              .
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <CtaSecondary to="/smart-lighting-glasgow">Smart Lighting Glasgow</CtaSecondary>
               <CtaSecondary to="/lutron-glasgow">Lutron Glasgow</CtaSecondary>
+              <CtaSecondary to="/knx-glasgow">KNX Glasgow</CtaSecondary>
             </div>
           </div>
         </div>

@@ -57,6 +57,11 @@ export const SERVICES: ServiceLink[] = [
     blurb: "Lighting design and control on Lutron, KNX and DALI.",
   },
   {
+    label: "KNX",
+    to: "/knx-glasgow",
+    blurb: "Open-standard lighting, climate and building control.",
+  },
+  {
     label: "Landscape Lighting",
     to: "/landscape-lighting-glasgow",
     blurb: "Exterior and garden lighting designed for architecture, planting and outdoor living.",

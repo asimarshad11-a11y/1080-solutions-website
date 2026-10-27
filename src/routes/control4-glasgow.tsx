@@ -215,9 +215,12 @@ function Control4Page() {
             <div className="mt-4 space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
                 Lighting is where most households feel automation first. We design lighting on
-                Lutron, KNX and DALI and bring it into Control4, so a single keypad by the door can
-                set an entire floor — and so the switch plates match the joinery rather than
-                fighting it.
+                Lutron,{" "}
+                <Link to="/knx-glasgow" className="text-primary hover:underline">
+                  KNX
+                </Link>{" "}
+                and DALI and bring it into Control4, so a single keypad by the door can set an
+                entire floor — and so the switch plates match the joinery rather than fighting it.
               </p>
               <p>
                 Circuits are planned with the lighting designer or architect, dimming is matched to
@@ -228,6 +231,7 @@ function Control4Page() {
             <div className="mt-8 flex flex-wrap gap-3">
               <CtaSecondary to="/smart-lighting-glasgow">Smart Lighting Glasgow</CtaSecondary>
               <CtaSecondary to="/lutron-glasgow">Lutron Integration</CtaSecondary>
+              <CtaSecondary to="/knx-glasgow">KNX Glasgow</CtaSecondary>
             </div>
           </div>
         </div>

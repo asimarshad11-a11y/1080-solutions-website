@@ -19,6 +19,8 @@ import { Route as DoorEntryAndAccessRouteImport } from './routes/door-entry-and-
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as HomeAutomationGlasgowRouteImport } from './routes/home-automation-glasgow'
 import { Route as HomeCinemaRouteImport } from './routes/home-cinema'
+import { Route as KnxGlasgowRouteImport } from './routes/knx-glasgow'
+import { Route as LandscapeLightingGlasgowRouteImport } from './routes/landscape-lighting-glasgow'
 import { Route as LutronGlasgowRouteImport } from './routes/lutron-glasgow'
 import { Route as MultiRoomAudioAndVideoRouteImport } from './routes/multi-room-audio-and-video'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -27,6 +29,8 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SmartHomeForArchitectsRouteImport } from './routes/smart-home-for-architects'
 import { Route as SmartHomeForInteriorDesignersRouteImport } from './routes/smart-home-for-interior-designers'
 import { Route as SmartHomeGlasgowRouteImport } from './routes/smart-home-glasgow'
+import { Route as SmartHomeNewtonMearnsRouteImport } from './routes/smart-home-newton-mearns'
+import { Route as SmartHomeWhitecraigsRouteImport } from './routes/smart-home-whitecraigs'
 import { Route as SmartLightingGlasgowRouteImport } from './routes/smart-lighting-glasgow'
 import { Route as ApiVisitorAlertRouteImport } from './routes/api.visitor-alert'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
@@ -82,6 +86,17 @@ const HomeCinemaRoute = HomeCinemaRouteImport.update({
   path: '/home-cinema',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KnxGlasgowRoute = KnxGlasgowRouteImport.update({
+  id: '/knx-glasgow',
+  path: '/knx-glasgow',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LandscapeLightingGlasgowRoute =
+  LandscapeLightingGlasgowRouteImport.update({
+    id: '/landscape-lighting-glasgow',
+    path: '/landscape-lighting-glasgow',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LutronGlasgowRoute = LutronGlasgowRouteImport.update({
   id: '/lutron-glasgow',
   path: '/lutron-glasgow',
@@ -123,6 +138,16 @@ const SmartHomeGlasgowRoute = SmartHomeGlasgowRouteImport.update({
   path: '/smart-home-glasgow',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SmartHomeNewtonMearnsRoute = SmartHomeNewtonMearnsRouteImport.update({
+  id: '/smart-home-newton-mearns',
+  path: '/smart-home-newton-mearns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SmartHomeWhitecraigsRoute = SmartHomeWhitecraigsRouteImport.update({
+  id: '/smart-home-whitecraigs',
+  path: '/smart-home-whitecraigs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SmartLightingGlasgowRoute = SmartLightingGlasgowRouteImport.update({
   id: '/smart-lighting-glasgow',
   path: '/smart-lighting-glasgow',
@@ -156,6 +181,8 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/home-automation-glasgow': typeof HomeAutomationGlasgowRoute
   '/home-cinema': typeof HomeCinemaRoute
+  '/knx-glasgow': typeof KnxGlasgowRoute
+  '/landscape-lighting-glasgow': typeof LandscapeLightingGlasgowRoute
   '/lutron-glasgow': typeof LutronGlasgowRoute
   '/multi-room-audio-and-video': typeof MultiRoomAudioAndVideoRoute
   '/privacy': typeof PrivacyRoute
@@ -164,6 +191,8 @@ export interface FileRoutesByFullPath {
   '/smart-home-for-architects': typeof SmartHomeForArchitectsRoute
   '/smart-home-for-interior-designers': typeof SmartHomeForInteriorDesignersRoute
   '/smart-home-glasgow': typeof SmartHomeGlasgowRoute
+  '/smart-home-newton-mearns': typeof SmartHomeNewtonMearnsRoute
+  '/smart-home-whitecraigs': typeof SmartHomeWhitecraigsRoute
   '/smart-lighting-glasgow': typeof SmartLightingGlasgowRoute
   '/api/visitor-alert': typeof ApiVisitorAlertRoute
   '/projects/whitecraigs-glasgow': typeof ProjectsWhitecraigsGlasgowRoute
@@ -180,6 +209,8 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/home-automation-glasgow': typeof HomeAutomationGlasgowRoute
   '/home-cinema': typeof HomeCinemaRoute
+  '/knx-glasgow': typeof KnxGlasgowRoute
+  '/landscape-lighting-glasgow': typeof LandscapeLightingGlasgowRoute
   '/lutron-glasgow': typeof LutronGlasgowRoute
   '/multi-room-audio-and-video': typeof MultiRoomAudioAndVideoRoute
   '/privacy': typeof PrivacyRoute
@@ -187,6 +218,8 @@ export interface FileRoutesByTo {
   '/smart-home-for-architects': typeof SmartHomeForArchitectsRoute
   '/smart-home-for-interior-designers': typeof SmartHomeForInteriorDesignersRoute
   '/smart-home-glasgow': typeof SmartHomeGlasgowRoute
+  '/smart-home-newton-mearns': typeof SmartHomeNewtonMearnsRoute
+  '/smart-home-whitecraigs': typeof SmartHomeWhitecraigsRoute
   '/smart-lighting-glasgow': typeof SmartLightingGlasgowRoute
   '/api/visitor-alert': typeof ApiVisitorAlertRoute
   '/projects/whitecraigs-glasgow': typeof ProjectsWhitecraigsGlasgowRoute
@@ -204,6 +237,8 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/home-automation-glasgow': typeof HomeAutomationGlasgowRoute
   '/home-cinema': typeof HomeCinemaRoute
+  '/knx-glasgow': typeof KnxGlasgowRoute
+  '/landscape-lighting-glasgow': typeof LandscapeLightingGlasgowRoute
   '/lutron-glasgow': typeof LutronGlasgowRoute
   '/multi-room-audio-and-video': typeof MultiRoomAudioAndVideoRoute
   '/privacy': typeof PrivacyRoute
@@ -212,6 +247,8 @@ export interface FileRoutesById {
   '/smart-home-for-architects': typeof SmartHomeForArchitectsRoute
   '/smart-home-for-interior-designers': typeof SmartHomeForInteriorDesignersRoute
   '/smart-home-glasgow': typeof SmartHomeGlasgowRoute
+  '/smart-home-newton-mearns': typeof SmartHomeNewtonMearnsRoute
+  '/smart-home-whitecraigs': typeof SmartHomeWhitecraigsRoute
   '/smart-lighting-glasgow': typeof SmartLightingGlasgowRoute
   '/api/visitor-alert': typeof ApiVisitorAlertRoute
   '/projects/whitecraigs-glasgow': typeof ProjectsWhitecraigsGlasgowRoute
@@ -230,6 +267,8 @@ export interface FileRouteTypes {
     | '/faq'
     | '/home-automation-glasgow'
     | '/home-cinema'
+    | '/knx-glasgow'
+    | '/landscape-lighting-glasgow'
     | '/lutron-glasgow'
     | '/multi-room-audio-and-video'
     | '/privacy'
@@ -238,6 +277,8 @@ export interface FileRouteTypes {
     | '/smart-home-for-architects'
     | '/smart-home-for-interior-designers'
     | '/smart-home-glasgow'
+    | '/smart-home-newton-mearns'
+    | '/smart-home-whitecraigs'
     | '/smart-lighting-glasgow'
     | '/api/visitor-alert'
     | '/projects/whitecraigs-glasgow'
@@ -254,6 +295,8 @@ export interface FileRouteTypes {
     | '/faq'
     | '/home-automation-glasgow'
     | '/home-cinema'
+    | '/knx-glasgow'
+    | '/landscape-lighting-glasgow'
     | '/lutron-glasgow'
     | '/multi-room-audio-and-video'
     | '/privacy'
@@ -261,6 +304,8 @@ export interface FileRouteTypes {
     | '/smart-home-for-architects'
     | '/smart-home-for-interior-designers'
     | '/smart-home-glasgow'
+    | '/smart-home-newton-mearns'
+    | '/smart-home-whitecraigs'
     | '/smart-lighting-glasgow'
     | '/api/visitor-alert'
     | '/projects/whitecraigs-glasgow'
@@ -277,6 +322,8 @@ export interface FileRouteTypes {
     | '/faq'
     | '/home-automation-glasgow'
     | '/home-cinema'
+    | '/knx-glasgow'
+    | '/landscape-lighting-glasgow'
     | '/lutron-glasgow'
     | '/multi-room-audio-and-video'
     | '/privacy'
@@ -285,6 +332,8 @@ export interface FileRouteTypes {
     | '/smart-home-for-architects'
     | '/smart-home-for-interior-designers'
     | '/smart-home-glasgow'
+    | '/smart-home-newton-mearns'
+    | '/smart-home-whitecraigs'
     | '/smart-lighting-glasgow'
     | '/api/visitor-alert'
     | '/projects/whitecraigs-glasgow'
@@ -302,6 +351,8 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   HomeAutomationGlasgowRoute: typeof HomeAutomationGlasgowRoute
   HomeCinemaRoute: typeof HomeCinemaRoute
+  KnxGlasgowRoute: typeof KnxGlasgowRoute
+  LandscapeLightingGlasgowRoute: typeof LandscapeLightingGlasgowRoute
   LutronGlasgowRoute: typeof LutronGlasgowRoute
   MultiRoomAudioAndVideoRoute: typeof MultiRoomAudioAndVideoRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -310,6 +361,8 @@ export interface RootRouteChildren {
   SmartHomeForArchitectsRoute: typeof SmartHomeForArchitectsRoute
   SmartHomeForInteriorDesignersRoute: typeof SmartHomeForInteriorDesignersRoute
   SmartHomeGlasgowRoute: typeof SmartHomeGlasgowRoute
+  SmartHomeNewtonMearnsRoute: typeof SmartHomeNewtonMearnsRoute
+  SmartHomeWhitecraigsRoute: typeof SmartHomeWhitecraigsRoute
   SmartLightingGlasgowRoute: typeof SmartLightingGlasgowRoute
   ApiVisitorAlertRoute: typeof ApiVisitorAlertRoute
 }
@@ -386,6 +439,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeCinemaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/knx-glasgow': {
+      id: '/knx-glasgow'
+      path: '/knx-glasgow'
+      fullPath: '/knx-glasgow'
+      preLoaderRoute: typeof KnxGlasgowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/landscape-lighting-glasgow': {
+      id: '/landscape-lighting-glasgow'
+      path: '/landscape-lighting-glasgow'
+      fullPath: '/landscape-lighting-glasgow'
+      preLoaderRoute: typeof LandscapeLightingGlasgowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lutron-glasgow': {
       id: '/lutron-glasgow'
       path: '/lutron-glasgow'
@@ -440,6 +507,20 @@ declare module '@tanstack/react-router' {
       path: '/smart-home-glasgow'
       fullPath: '/smart-home-glasgow'
       preLoaderRoute: typeof SmartHomeGlasgowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/smart-home-newton-mearns': {
+      id: '/smart-home-newton-mearns'
+      path: '/smart-home-newton-mearns'
+      fullPath: '/smart-home-newton-mearns'
+      preLoaderRoute: typeof SmartHomeNewtonMearnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/smart-home-whitecraigs': {
+      id: '/smart-home-whitecraigs'
+      path: '/smart-home-whitecraigs'
+      fullPath: '/smart-home-whitecraigs'
+      preLoaderRoute: typeof SmartHomeWhitecraigsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/smart-lighting-glasgow': {
@@ -498,6 +579,8 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   HomeAutomationGlasgowRoute: HomeAutomationGlasgowRoute,
   HomeCinemaRoute: HomeCinemaRoute,
+  KnxGlasgowRoute: KnxGlasgowRoute,
+  LandscapeLightingGlasgowRoute: LandscapeLightingGlasgowRoute,
   LutronGlasgowRoute: LutronGlasgowRoute,
   MultiRoomAudioAndVideoRoute: MultiRoomAudioAndVideoRoute,
   PrivacyRoute: PrivacyRoute,
@@ -506,6 +589,8 @@ const rootRouteChildren: RootRouteChildren = {
   SmartHomeForArchitectsRoute: SmartHomeForArchitectsRoute,
   SmartHomeForInteriorDesignersRoute: SmartHomeForInteriorDesignersRoute,
   SmartHomeGlasgowRoute: SmartHomeGlasgowRoute,
+  SmartHomeNewtonMearnsRoute: SmartHomeNewtonMearnsRoute,
+  SmartHomeWhitecraigsRoute: SmartHomeWhitecraigsRoute,
   SmartLightingGlasgowRoute: SmartLightingGlasgowRoute,
   ApiVisitorAlertRoute: ApiVisitorAlertRoute,
 }

@@ -99,7 +99,7 @@ const sitemapResponse = await fetchWorker("/sitemap.xml");
 check(sitemapResponse.status === 200, "sitemap.xml must return 200");
 const sitemap = await sitemapResponse.text();
 const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => decodeHtml(match[1]));
-check(urls.length === 21, `sitemap must contain 21 URLs (found ${urls.length})`);
+check(urls.length === 22, `sitemap must contain 22 URLs (found ${urls.length})`);
 check(new Set(urls).size === urls.length, "sitemap URLs must be unique");
 
 for (const url of urls) {
@@ -139,7 +139,10 @@ for (const url of urls) {
   check(twitterImage === ogImage, `${path}: Twitter image must match og:image`);
   check(html.includes("1080 Solutions Ltd"), `${path}: marketing entity is missing`);
   check(html.includes("SC566054"), `${path}: 1080 Solutions company number is missing`);
-  check(html.includes("Parent company: <!-- -->Algo AV Limited"), `${path}: parent company is missing`);
+  check(
+    html.includes("Parent company: <!-- -->Algo AV Limited"),
+    `${path}: parent company is missing`,
+  );
   check(html.includes("SC824474"), `${path}: parent company number is missing`);
   check(
     html.includes("https://www.instagram.com/1080solutionsltd/"),
