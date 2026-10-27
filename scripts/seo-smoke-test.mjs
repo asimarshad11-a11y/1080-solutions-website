@@ -216,3 +216,5 @@ if (failures.length) {
     `\nSEO smoke test passed: ${pages.size} pages, ${internalPaths.size} internal paths, metadata, schema, social previews, robots and sitemap.`,
   );
 }
+
+process.exit(failures.length ? 1 : 0);
