@@ -26,20 +26,33 @@ const inputCls =
 function ContactPage() {
   const [sent, setSent] = useState(false);
 
-  // No backend yet: compose a mailto so the enquiry reaches sales@ directly.
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const name = String(data.get("name") ?? "");
-    const email = String(data.get("email") ?? "");
-    const phone = String(data.get("phone") ?? "");
-    const message = String(data.get("message") ?? "");
-    const subject = encodeURIComponent(`Website enquiry — ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`,
-    );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    setSent(true);
+    if (sending) return;
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    setSending(true);
+    setSent(false);
+    setError("");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(data)),
+      });
+      const result = await response.json();
+      if (!response.ok || result.ok !== true)
+        throw new Error(result.error || "Please try again or contact us directly.");
+      setSent(true);
+      form.reset();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Please try again or contact us directly.");
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -112,13 +125,24 @@ function ContactPage() {
             <p className="mt-2 text-sm text-muted-foreground">
               A few details help us point you to the right engineer.
             </p>
-            <form className="mt-6 grid gap-4" onSubmit={handleSubmit}>
+            <form className="mt-6 grid gap-4" onSubmit={handleSubmit} aria-busy={sending}>
+              <div hidden aria-hidden="true">
+                <label htmlFor="website">Leave this field blank</label>
+                <input id="website" name="website" tabIndex={-1} autoComplete="off" />
+              </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className="mb-1.5 block text-sm font-medium">
                     Name
                   </label>
-                  <input id="name" name="name" required autoComplete="name" className={inputCls} />
+                  <input
+                    id="name"
+                    name="name"
+                    required
+                    maxLength={120}
+                    autoComplete="name"
+                    className={inputCls}
+                  />
                 </div>
                 <div>
                   <label htmlFor="email" className="mb-1.5 block text-sm font-medium">
@@ -129,6 +153,7 @@ function ContactPage() {
                     name="email"
                     type="email"
                     required
+                    maxLength={254}
                     autoComplete="email"
                     className={inputCls}
                   />
@@ -138,7 +163,14 @@ function ContactPage() {
                 <label htmlFor="phone" className="mb-1.5 block text-sm font-medium">
                   Phone (optional)
                 </label>
-                <input id="phone" name="phone" type="tel" autoComplete="tel" className={inputCls} />
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  maxLength={50}
+                  autoComplete="tel"
+                  className={inputCls}
+                />
               </div>
               <div>
                 <label htmlFor="message" className="mb-1.5 block text-sm font-medium">
@@ -149,20 +181,33 @@ function ContactPage() {
                   name="message"
                   required
                   rows={5}
+                  maxLength={5000}
                   placeholder="e.g. New build in Newton Mearns — interested in Control4, lighting and a cinema room."
                   className={inputCls}
                 />
               </div>
               <button
                 type="submit"
+                disabled={sending}
                 className="inline-flex items-center justify-center rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/85"
               >
-                Send Enquiry
+                {sending ? "Sending…" : "Send Enquiry"}
               </button>
+              <p className="text-xs text-muted-foreground">
+                We use your details to respond to your enquiry. Read our{" "}
+                <a href="/privacy" className="underline">
+                  privacy policy
+                </a>
+                .
+              </p>
+              {error && (
+                <p className="text-sm text-destructive" role="alert">
+                  {error}
+                </p>
+              )}
               {sent && (
                 <p className="text-sm text-muted-foreground" role="status">
-                  Your email app should now open with the enquiry ready to send. If it doesn't,
-                  email us directly at {EMAIL} or call {PHONE_DISPLAY}.
+                  Thank you. Your enquiry has been sent. We'll reply within one working day.
                 </p>
               )}
             </form>

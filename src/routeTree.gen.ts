@@ -32,6 +32,7 @@ import { Route as SmartHomeGlasgowRouteImport } from './routes/smart-home-glasgo
 import { Route as SmartHomeNewtonMearnsRouteImport } from './routes/smart-home-newton-mearns'
 import { Route as SmartHomeWhitecraigsRouteImport } from './routes/smart-home-whitecraigs'
 import { Route as SmartLightingGlasgowRouteImport } from './routes/smart-lighting-glasgow'
+import { Route as ApiContactRouteImport } from './routes/api.contact'
 import { Route as ApiVisitorAlertRouteImport } from './routes/api.visitor-alert'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsWhitecraigsGlasgowRouteImport } from './routes/projects.whitecraigs-glasgow'
@@ -153,6 +154,11 @@ const SmartLightingGlasgowRoute = SmartLightingGlasgowRouteImport.update({
   path: '/smart-lighting-glasgow',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiContactRoute = ApiContactRouteImport.update({
+  id: '/api/contact',
+  path: '/api/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiVisitorAlertRoute = ApiVisitorAlertRouteImport.update({
   id: '/api/visitor-alert',
   path: '/api/visitor-alert',
@@ -194,6 +200,7 @@ export interface FileRoutesByFullPath {
   '/smart-home-newton-mearns': typeof SmartHomeNewtonMearnsRoute
   '/smart-home-whitecraigs': typeof SmartHomeWhitecraigsRoute
   '/smart-lighting-glasgow': typeof SmartLightingGlasgowRoute
+  '/api/contact': typeof ApiContactRoute
   '/api/visitor-alert': typeof ApiVisitorAlertRoute
   '/projects/whitecraigs-glasgow': typeof ProjectsWhitecraigsGlasgowRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -221,6 +228,7 @@ export interface FileRoutesByTo {
   '/smart-home-newton-mearns': typeof SmartHomeNewtonMearnsRoute
   '/smart-home-whitecraigs': typeof SmartHomeWhitecraigsRoute
   '/smart-lighting-glasgow': typeof SmartLightingGlasgowRoute
+  '/api/contact': typeof ApiContactRoute
   '/api/visitor-alert': typeof ApiVisitorAlertRoute
   '/projects/whitecraigs-glasgow': typeof ProjectsWhitecraigsGlasgowRoute
   '/projects': typeof ProjectsIndexRoute
@@ -250,6 +258,7 @@ export interface FileRoutesById {
   '/smart-home-newton-mearns': typeof SmartHomeNewtonMearnsRoute
   '/smart-home-whitecraigs': typeof SmartHomeWhitecraigsRoute
   '/smart-lighting-glasgow': typeof SmartLightingGlasgowRoute
+  '/api/contact': typeof ApiContactRoute
   '/api/visitor-alert': typeof ApiVisitorAlertRoute
   '/projects/whitecraigs-glasgow': typeof ProjectsWhitecraigsGlasgowRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -280,6 +289,7 @@ export interface FileRouteTypes {
     | '/smart-home-newton-mearns'
     | '/smart-home-whitecraigs'
     | '/smart-lighting-glasgow'
+    | '/api/contact'
     | '/api/visitor-alert'
     | '/projects/whitecraigs-glasgow'
     | '/projects/'
@@ -307,6 +317,7 @@ export interface FileRouteTypes {
     | '/smart-home-newton-mearns'
     | '/smart-home-whitecraigs'
     | '/smart-lighting-glasgow'
+    | '/api/contact'
     | '/api/visitor-alert'
     | '/projects/whitecraigs-glasgow'
     | '/projects'
@@ -335,6 +346,7 @@ export interface FileRouteTypes {
     | '/smart-home-newton-mearns'
     | '/smart-home-whitecraigs'
     | '/smart-lighting-glasgow'
+    | '/api/contact'
     | '/api/visitor-alert'
     | '/projects/whitecraigs-glasgow'
     | '/projects/'
@@ -364,6 +376,7 @@ export interface RootRouteChildren {
   SmartHomeNewtonMearnsRoute: typeof SmartHomeNewtonMearnsRoute
   SmartHomeWhitecraigsRoute: typeof SmartHomeWhitecraigsRoute
   SmartLightingGlasgowRoute: typeof SmartLightingGlasgowRoute
+  ApiContactRoute: typeof ApiContactRoute
   ApiVisitorAlertRoute: typeof ApiVisitorAlertRoute
 }
 
@@ -530,6 +543,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SmartLightingGlasgowRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/contact': {
+      id: '/api/contact'
+      path: '/api/contact'
+      fullPath: '/api/contact'
+      preLoaderRoute: typeof ApiContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/visitor-alert': {
       id: '/api/visitor-alert'
       path: '/api/visitor-alert'
@@ -592,6 +612,7 @@ const rootRouteChildren: RootRouteChildren = {
   SmartHomeNewtonMearnsRoute: SmartHomeNewtonMearnsRoute,
   SmartHomeWhitecraigsRoute: SmartHomeWhitecraigsRoute,
   SmartLightingGlasgowRoute: SmartLightingGlasgowRoute,
+  ApiContactRoute: ApiContactRoute,
   ApiVisitorAlertRoute: ApiVisitorAlertRoute,
 }
 export const routeTree = rootRouteImport
