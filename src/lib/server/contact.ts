@@ -1,7 +1,37 @@
+import nodemailer from "nodemailer";
+
+type EnquiryMail = { from: string; to: string; replyTo: string; subject: string; text: string };
+
+async function sendGmail(mail: EnquiryMail): Promise<boolean> {
+  const transport = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: { user: process.env["GMAIL_SMTP_USER"], pass: process.env["GMAIL_SMTP_APP_PASSWORD"] },
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
+    disableFileAccess: true,
+    disableUrlAccess: true,
+  });
+  try {
+    const result = await transport.sendMail(mail);
+    return result.accepted.some(
+      (address: string | { address: string }) =>
+        (typeof address === "string" ? address : address.address).toLowerCase() === mail.to,
+    );
+  } finally {
+    transport.close();
+  }
+}
+
 const json = (body: object, status = 200) =>
   Response.json(body, { status, headers: { "Cache-Control": "no-store" } });
 
-export async function handleContact(request: Request): Promise<Response> {
+export async function handleContact(
+  request: Request,
+  send: (mail: EnquiryMail) => Promise<boolean> = sendGmail,
+): Promise<Response> {
   if (request.headers.get("origin") !== new URL(request.url).origin)
     return json({ error: "Invalid origin." }, 403);
   if (!request.headers.get("content-type")?.startsWith("application/json"))
@@ -34,9 +64,9 @@ export async function handleContact(request: Request): Promise<Response> {
   ) {
     return json({ error: "Please check your name, email and project details." }, 400);
   }
-  const key = process.env["RESEND_API_KEY"];
-  const from = process.env["CONTACT_FROM_EMAIL"];
-  if (!key || !from)
+  const user = process.env["GMAIL_SMTP_USER"];
+  const password = process.env["GMAIL_SMTP_APP_PASSWORD"];
+  if (!user || !password)
     return json(
       {
         error:
@@ -45,19 +75,14 @@ export async function handleContact(request: Request): Promise<Response> {
       503,
     );
   try {
-    const result = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-      signal: AbortSignal.timeout(10000),
-      body: JSON.stringify({
-        from,
-        to: ["sales@1080solutions.co.uk"],
-        reply_to: email,
-        subject: `Website enquiry — ${name.trim()}`,
-        text: `Name: ${name.trim()}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\n\n${message.trim()}`,
-      }),
+    const accepted = await send({
+      from: `1080 Solutions Website <${user}>`,
+      to: "sales@1080solutions.co.uk",
+      replyTo: email,
+      subject: `Website enquiry — ${name.trim()}`,
+      text: `Name: ${name.trim()}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\n\n${message.trim()}`,
     });
-    if (!result.ok)
+    if (!accepted)
       return json(
         {
           error:

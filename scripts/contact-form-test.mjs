@@ -1,25 +1,44 @@
-import assert from 'node:assert/strict';
-import { handleContact } from '../src/lib/server/contact.ts';
-const payload = { name: 'Website test', email: 'sales@1080solutions.co.uk', message: 'Test enquiry' };
-const request = (data = payload, origin = 'https://www.1080solutions.co.uk') => new Request('https://www.1080solutions.co.uk/api/contact', { method: 'POST', headers: { origin, 'content-type': 'application/json' }, body: JSON.stringify(data) });
-assert.equal((await handleContact(request(payload, 'https://example.com'))).status, 403);
-assert.equal((await handleContact(request({ ...payload, email: 'invalid' }))).status, 400);
-assert.equal((await handleContact(request({ ...payload, message: ' ' }))).status, 400);
-assert.equal((await handleContact(request({ ...payload, message: 'x'.repeat(5001) }))).status, 400);
-assert.equal((await handleContact(request({ ...payload, website: 'spam' }))).status, 200);
-delete process.env.RESEND_API_KEY;
-delete process.env.CONTACT_FROM_EMAIL;
+import assert from "node:assert/strict";
+import { handleContact } from "../src/lib/server/contact.ts";
+const payload = {
+  name: "Website test",
+  email: "sales@1080solutions.co.uk",
+  message: "Test enquiry",
+};
+const request = (data = payload, origin = "https://www.1080solutions.co.uk") =>
+  new Request("https://www.1080solutions.co.uk/api/contact", {
+    method: "POST",
+    headers: { origin, "content-type": "application/json" },
+    body: JSON.stringify(data),
+  });
+assert.equal((await handleContact(request(payload, "https://example.com"))).status, 403);
+assert.equal((await handleContact(request({ ...payload, email: "invalid" }))).status, 400);
+assert.equal((await handleContact(request({ ...payload, message: " " }))).status, 400);
+assert.equal((await handleContact(request({ ...payload, message: "x".repeat(5001) }))).status, 400);
+assert.equal((await handleContact(request({ ...payload, website: "spam" }))).status, 200);
+delete process.env.GMAIL_SMTP_USER;
+delete process.env.GMAIL_SMTP_APP_PASSWORD;
 assert.equal((await handleContact(request())).status, 503);
-process.env.RESEND_API_KEY = 'test-placeholder';
-process.env.CONTACT_FROM_EMAIL = 'Website <website@1080solutions.co.uk>';
+process.env.GMAIL_SMTP_USER = "sales@1080solutions.co.uk";
+process.env.GMAIL_SMTP_APP_PASSWORD = "test-placeholder";
 let sent;
-globalThis.fetch = async (url, options) => { sent = { url, body: JSON.parse(options.body) }; return Response.json({ id: 'test-id' }); };
-assert.deepEqual(await (await handleContact(request())).json(), { ok: true });
-assert.deepEqual(sent.body.to, ['sales@1080solutions.co.uk']);
-assert.equal(sent.body.reply_to, payload.email);
-assert.equal(sent.url, 'https://api.resend.com/emails');
-globalThis.fetch = async () => Response.json({ error: 'rejected' }, { status: 403 });
-assert.equal((await handleContact(request())).status, 502);
-globalThis.fetch = async () => { throw new Error('timeout'); };
-assert.equal((await handleContact(request())).status, 502);
-console.log('Contact tests passed: validation, origin, honeypot, configuration, delivery and failure handling. No email sent.');
+const accepted = async (mail) => {
+  sent = mail;
+  return true;
+};
+assert.deepEqual(await (await handleContact(request(), accepted)).json(), { ok: true });
+assert.equal(sent.to, "sales@1080solutions.co.uk");
+assert.equal(sent.replyTo, payload.email);
+assert.equal(sent.from, "1080 Solutions Website <sales@1080solutions.co.uk>");
+assert.equal((await handleContact(request(), async () => false)).status, 502);
+assert.equal(
+  (
+    await handleContact(request(), async () => {
+      throw new Error("timeout");
+    })
+  ).status,
+  502,
+);
+console.log(
+  "Contact tests passed: validation, origin, honeypot, configuration, Gmail acceptance and failure handling. No email sent.",
+);
