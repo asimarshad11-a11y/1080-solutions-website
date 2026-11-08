@@ -28,18 +28,50 @@ async function sendGmail(mail: EnquiryMail): Promise<boolean> {
 const json = (body: object, status = 200) =>
   Response.json(body, { status, headers: { "Cache-Control": "no-store" } });
 
+const maxBodyBytes = 24000;
+const hasControlCharacters = (value: string) =>
+  Array.from(value).some(
+    (character) => character.charCodeAt(0) < 32 || character.charCodeAt(0) === 127,
+  );
+
+async function readBody(request: Request): Promise<string | null> {
+  if (Number(request.headers.get("content-length")) > maxBodyBytes) return null;
+  const reader = request.body?.getReader();
+  if (!reader) return "";
+  const chunks: Uint8Array[] = [];
+  let size = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      size += value.byteLength;
+      if (size > maxBodyBytes) {
+        await reader.cancel();
+        return null;
+      }
+      chunks.push(value);
+    }
+    return Buffer.concat(chunks).toString("utf8");
+  } finally {
+    reader.releaseLock();
+  }
+}
+
 export async function handleContact(
   request: Request,
   send: (mail: EnquiryMail) => Promise<boolean> = sendGmail,
 ): Promise<Response> {
+  if (request.method !== "POST") return json({ error: "Method not allowed." }, 405);
   if (request.headers.get("origin") !== new URL(request.url).origin)
     return json({ error: "Invalid origin." }, 403);
-  if (!request.headers.get("content-type")?.startsWith("application/json"))
+  if (
+    request.headers.get("content-type")?.split(";")[0]?.trim().toLowerCase() !== "application/json"
+  )
     return json({ error: "Invalid request." }, 415);
-  const text = await request.text();
-  if (text.length > 16000) return json({ error: "Your enquiry is too long." }, 413);
   let data: Record<string, unknown>;
   try {
+    const text = await readBody(request);
+    if (text === null) return json({ error: "Your enquiry is too long." }, 413);
     data = JSON.parse(text);
   } catch {
     return json({ error: "Invalid request." }, 400);
@@ -52,10 +84,11 @@ export async function handleContact(
     typeof name !== "string" ||
     !name.trim() ||
     name.length > 120 ||
-    /[\r\n]/.test(name) ||
+    hasControlCharacters(name) ||
     typeof email !== "string" ||
     email.length > 254 ||
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+    !/^[^\s@<>(),;:"\\]+@[^\s@<>(),;:"\\]+\.[^\s@<>(),;:"\\]+$/.test(email) ||
+    hasControlCharacters(email) ||
     typeof phone !== "string" ||
     phone.length > 50 ||
     typeof message !== "string" ||

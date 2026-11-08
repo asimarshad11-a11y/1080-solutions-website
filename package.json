@@ -11,6 +11,7 @@
     "preview:worker": "wrangler dev --config .output/server/wrangler.json",
     "deploy": "wrangler deploy --config .output/server/wrangler.json",
     "test:seo": "node scripts/seo-smoke-test.mjs",
+    "test:contact": "node scripts/contact-form-test.mjs && node scripts/contact-submit-test.mjs",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

@@ -42,3 +42,60 @@ assert.equal(
 console.log(
   "Contact tests passed: validation, origin, honeypot, configuration, Gmail acceptance and failure handling. No email sent.",
 );
+
+// Reject malformed inputs before invoking SMTP.
+let deliveries = 0;
+const track = async () => {
+  deliveries++;
+  return true;
+};
+for (const bad of [
+  null,
+  [],
+  "string",
+  {},
+  { ...payload, name: "x\r\nBcc: victim@example.com" },
+  { ...payload, email: "a@b.co,c@d.co" },
+  { ...payload, email: "<a@b.co>" },
+  { ...payload, phone: 123 },
+  { ...payload, name: "x".repeat(121) },
+]) {
+  assert.equal((await handleContact(request(bad), track)).status, 400);
+}
+assert.equal(deliveries, 0);
+assert.equal(
+  (await handleContact(new Request("https://www.1080solutions.co.uk/api/contact"), track)).status,
+  405,
+);
+assert.equal(
+  (
+    await handleContact(
+      new Request("https://www.1080solutions.co.uk/api/contact", {
+        method: "POST",
+        headers: { origin: "https://www.1080solutions.co.uk", "content-type": "text/plain" },
+        body: "{}",
+      }),
+      track,
+    )
+  ).status,
+  415,
+);
+assert.equal(
+  (await handleContact(request({ ...payload, message: "x".repeat(25000) }), track)).status,
+  413,
+);
+const malformed = new Request("https://www.1080solutions.co.uk/api/contact", {
+  method: "POST",
+  headers: { origin: "https://www.1080solutions.co.uk", "content-type": "application/json" },
+  body: "{",
+});
+assert.equal((await handleContact(malformed, track)).status, 400);
+assert.equal(deliveries, 0);
+assert.equal(
+  (await handleContact(request({ ...payload, message: "界".repeat(5000) }), track)).status,
+  200,
+);
+assert.equal(deliveries, 1);
+console.log(
+  "Contact hardening tests passed: header injection, malformed requests, body limits and Unicode.",
+);
