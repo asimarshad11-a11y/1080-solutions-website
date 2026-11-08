@@ -11,6 +11,7 @@
     "preview:worker": "wrangler dev --config .output/server/wrangler.json",
     "deploy": "wrangler deploy --config .output/server/wrangler.json",
     "test:seo": "node scripts/seo-smoke-test.mjs",
+    "test:contact": "node scripts/contact-form-test.mjs && node scripts/contact-submit-test.mjs",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
@@ -57,6 +58,7 @@
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.575.0",
+    "nodemailer": "^10.3.1",
     "react": "^19.2.0",
     "react-day-picker": "^9.14.0",
     "react-dom": "^19.2.0",
@@ -74,6 +76,7 @@
   "devDependencies": {
     "@eslint/js": "^9.32.0",
     "@types/node": "^22.16.5",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.2.0",
