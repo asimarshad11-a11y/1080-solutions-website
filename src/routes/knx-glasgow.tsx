@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/site/ResponsiveImage";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   AreasServed,
@@ -153,13 +154,14 @@ function KnxGlasgowPage() {
               <CtaSecondary to="/smart-home-glasgow">Smart Home Glasgow</CtaSecondary>
             </div>
           </div>
-          <img
+          <ResponsiveImage
             src={heroImage}
             alt="Integrated KNX and Control4 smart home system in Glasgow"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </section>

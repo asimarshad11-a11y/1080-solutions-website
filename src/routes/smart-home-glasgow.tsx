@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/site/ResponsiveImage";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   AreasServed,
@@ -82,7 +83,7 @@ function SmartHomeGlasgowPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">
-        <img
+        <ResponsiveImage
           src={heroImage}
           alt="Smart home living room in Glasgow at dusk with automated lighting and concealed AV"
           width={1920}
@@ -194,13 +195,14 @@ function SmartHomeGlasgowPage() {
               <CtaSecondary to="/control4-glasgow">Control4 in Glasgow</CtaSecondary>
             </div>
           </div>
-          <img
+          <ResponsiveImage
             src={controlImage}
             alt="Control4 wall panel and smart lighting keypad in a dark hallway"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </section>
@@ -208,13 +210,14 @@ function SmartHomeGlasgowPage() {
       {/* Smart lighting / Lutron */}
       <section className="border-t border-border">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
-          <img
+          <ResponsiveImage
             src={lightingImage}
             alt="Lutron smart lighting and architectural LED in a Glasgow kitchen"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover lg:order-1"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
           <div className="lg:order-2">
             <p className="eyebrow">Smart Lighting · Lutron</p>
@@ -268,13 +271,14 @@ function SmartHomeGlasgowPage() {
               </p>
             </div>
           </div>
-          <img
+          <ResponsiveImage
             src={blindsImage}
             alt="Automated sheer curtains in a Glasgow bedroom at sunrise"
             width={1920}
             height={1080}
             loading="lazy"
             className="mt-5 aspect-[21/9] w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </section>
@@ -407,13 +411,14 @@ function SmartHomeGlasgowPage() {
               </CtaPrimary>
             </div>
           </div>
-          <img
+          <ResponsiveImage
             src={cinemaImage}
             alt="Dolby Atmos home cinema installed by 1080 Solutions in Whitecraigs, Glasgow"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </section>

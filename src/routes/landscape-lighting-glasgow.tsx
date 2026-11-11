@@ -11,8 +11,6 @@ import {
 } from "@/components/site/Sections";
 import { faqJsonLd, seoHead, serviceJsonLd } from "@/lib/seo";
 import lightingImage from "@/assets/smart-lighting.jpg";
-import projectImage from "@/assets/landscape-lighting-deck.webp";
-import outdoorKitchenImage from "@/assets/landscape-lighting-outdoor-kitchen.jpg";
 
 const FAQS = [
   {
@@ -78,13 +76,19 @@ function LandscapeLightingPage() {
       <section>
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-            <SectionHeading eyebrow="Exterior Lighting Design" title="Make the outside feel as considered as the inside." />
+            <SectionHeading
+              eyebrow="Exterior Lighting Design"
+              title="Make the outside feel as considered as the inside."
+            />
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground lg:pt-12">
               <p>
-                Good landscape lighting is subtle. It reveals texture, frames planting, guides movement and gives the exterior of the home depth after dark without flooding the garden with light.
+                Good landscape lighting is subtle. It reveals texture, frames planting, guides
+                movement and gives the exterior of the home depth after dark without flooding the
+                garden with light.
               </p>
               <p>
-                We design the fittings, positions, beam angles, colour temperature and control together so the finished result feels intentional from every viewpoint.
+                We design the fittings, positions, beam angles, colour temperature and control
+                together so the finished result feels intentional from every viewpoint.
               </p>
             </div>
           </div>
@@ -116,39 +120,24 @@ function LandscapeLightingPage() {
       </section>
 
       <section className="border-t border-border bg-card/40">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
           <div>
             <SectionHeading eyebrow="Smart Control" title="Exterior lighting that runs itself." />
             <div className="mt-4 space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                Landscape lighting works best when the control is invisible. We use schedules, dusk-to-dawn logic, sensors and scenes so the right areas come on automatically at the right time.
+                Landscape lighting works best when the control is invisible. We use schedules,
+                dusk-to-dawn logic, sensors and scenes so the right areas come on automatically at
+                the right time.
               </p>
               <p>
-                Where the home already has smart control, exterior lighting can form part of the same system — alongside security, gates, CCTV, blinds, heating and AV.
+                Where the home already has smart control, exterior lighting can form part of the
+                same system — alongside security, gates, CCTV, blinds, heating and AV.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <CtaSecondary to="/control4-glasgow">Control4 Glasgow</CtaSecondary>
               <CtaSecondary to="/lutron-glasgow">Lutron Glasgow</CtaSecondary>
             </div>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-            <img
-              src={projectImage}
-              alt="Warm perimeter lighting integrated into a timber garden deck in Glasgow"
-              width={600}
-              height={450}
-              loading="lazy"
-              className="aspect-[4/3] w-full rounded-lg border border-border object-cover"
-            />
-            <img
-              src={outdoorKitchenImage}
-              alt="Warm landscape lighting around an outdoor kitchen and garden living area"
-              width={600}
-              height={800}
-              loading="lazy"
-              className="w-full rounded-lg border border-border object-cover"
-            />
           </div>
         </div>
       </section>

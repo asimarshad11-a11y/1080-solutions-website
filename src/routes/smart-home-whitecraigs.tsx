@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/site/ResponsiveImage";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   AreasServed,
@@ -67,7 +68,7 @@ function SmartHomeWhitecraigsPage() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-border">
-        <img
+        <ResponsiveImage
           src={whitecraigsImage}
           alt="Home cinema and smart lighting installation in Whitecraigs, Glasgow"
           width={1920}
@@ -75,7 +76,10 @@ function SmartHomeWhitecraigsPage() {
           fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background" aria-hidden />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background"
+          aria-hidden
+        />
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
           <p className="eyebrow">Whitecraigs · Glasgow</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
@@ -87,7 +91,9 @@ function SmartHomeWhitecraigsPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <CtaPrimary to="/contact">Arrange a Consultation</CtaPrimary>
-            <CtaSecondary to="/projects/whitecraigs-glasgow">View Our Whitecraigs Project</CtaSecondary>
+            <CtaSecondary to="/projects/whitecraigs-glasgow">
+              View Our Whitecraigs Project
+            </CtaSecondary>
           </div>
         </div>
       </section>
@@ -109,8 +115,8 @@ function SmartHomeWhitecraigsPage() {
               <p>
                 We start with the infrastructure: a stable wired network, sensible equipment
                 locations and a clear plan for lighting, AV and control. From there we build the
-                system around the way the household uses the property — everyday scenes, entertaining,
-                cinema, night-time security and remote access.
+                system around the way the household uses the property — everyday scenes,
+                entertaining, cinema, night-time security and remote access.
               </p>
             </div>
           </div>
@@ -173,40 +179,45 @@ function SmartHomeWhitecraigsPage() {
             </h2>
             <div className="mt-4 space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
-                Our Whitecraigs portfolio includes a dedicated 9.4.4 Dolby Atmos cinema using M&amp;K
-                loudspeakers, StormAudio processing, JVC laser projection, a 192-inch Projecta screen,
-                Control4 automation and architectural tunable-white lighting.
+                Our Whitecraigs portfolio includes a dedicated 9.4.4 Dolby Atmos cinema using
+                M&amp;K loudspeakers, StormAudio processing, JVC laser projection, a 192-inch
+                Projecta screen, Control4 automation and architectural tunable-white lighting.
               </p>
               <p>
                 The value of that project is not only the equipment list. It demonstrates the same
-                approach we use across larger smart-home projects: proper design, hidden infrastructure,
-                calibrated performance and one control experience from start to finish.
+                approach we use across larger smart-home projects: proper design, hidden
+                infrastructure, calibrated performance and one control experience from start to
+                finish.
               </p>
             </div>
             <div className="mt-8">
-              <CtaSecondary to="/projects/whitecraigs-glasgow">Read the Whitecraigs Case Study</CtaSecondary>
+              <CtaSecondary to="/projects/whitecraigs-glasgow">
+                Read the Whitecraigs Case Study
+              </CtaSecondary>
             </div>
           </div>
-          <img
+          <ResponsiveImage
             src={whitecraigsImage}
             alt="Completed Whitecraigs home cinema with star ceiling, projection and Control4 automation"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </section>
 
       <section className="border-t border-border bg-card/40">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
-          <img
+          <ResponsiveImage
             src={controlImage}
             alt="Control4 smart home control panel and keypad"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
           <div>
             <p className="eyebrow">Renovation & New Build</p>
@@ -216,8 +227,9 @@ function SmartHomeWhitecraigsPage() {
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               During a renovation or extension, the cheapest cable is the one installed before the
               walls close. We coordinate with architects, interior designers, electricians and other
-              trades so lighting circuits, keypads, speakers, access points, cameras, blinds and rack
-              locations are planned before first fix rather than improvised near the end of the job.
+              trades so lighting circuits, keypads, speakers, access points, cameras, blinds and
+              rack locations are planned before first fix rather than improvised near the end of the
+              job.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               If the property is already finished, we survey what is available and build a retrofit
@@ -237,8 +249,9 @@ function SmartHomeWhitecraigsPage() {
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               Instead of rows of switches, a well-designed lighting system gives each room a small
-              set of meaningful scenes. Kitchen, evening, entertaining, night and away scenes can set
-              multiple circuits at once, while Control4 links lighting with blinds, AV and security.
+              set of meaningful scenes. Kitchen, evening, entertaining, night and away scenes can
+              set multiple circuits at once, while Control4 links lighting with blinds, AV and
+              security.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               For high-end renovations we can design around Lutron, KNX and DALI, depending on the
@@ -249,13 +262,14 @@ function SmartHomeWhitecraigsPage() {
               <CtaSecondary to="/lutron-glasgow">Lutron Glasgow</CtaSecondary>
             </div>
           </div>
-          <img
+          <ResponsiveImage
             src={lightingImage}
             alt="Architectural smart lighting in a modern Glasgow kitchen"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </section>

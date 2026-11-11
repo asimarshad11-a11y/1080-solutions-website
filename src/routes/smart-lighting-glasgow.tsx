@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/site/ResponsiveImage";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   AreasServed,
@@ -144,13 +145,14 @@ function SmartLightingPage() {
               <CtaSecondary to="/knx-glasgow">KNX Glasgow</CtaSecondary>
             </div>
           </div>
-          <img
+          <ResponsiveImage
             src={heroImage}
             alt="Layered evening lighting scene in a Glasgow living room"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </section>

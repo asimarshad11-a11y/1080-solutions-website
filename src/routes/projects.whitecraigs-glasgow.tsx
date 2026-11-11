@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/site/ResponsiveImage";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AreasServed, CtaBand, CtaPrimary, SectionHeading } from "@/components/site/Sections";
 import { seoHead } from "@/lib/seo";
@@ -76,7 +77,7 @@ function WhitecraigsPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">
-        <img
+        <ResponsiveImage
           src={whitecraigsImage}
           alt="9.4.4 Dolby Atmos home cinema with star ceiling in Whitecraigs, Glasgow"
           width={1920}
@@ -169,13 +170,14 @@ function WhitecraigsPage() {
               </p>
             </div>
           </div>
-          <img
+          <ResponsiveImage
             src={cinemaImage}
             alt="Tiered seating and acoustic panelling inside the Whitecraigs cinema"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </section>
