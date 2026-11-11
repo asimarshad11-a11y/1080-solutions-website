@@ -1,5 +1,6 @@
+import { ResponsiveImage } from "@/components/site/ResponsiveImage";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Phone, Star } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 import { AREAS, PHONE_DISPLAY, PHONE_TEL } from "@/lib/site";
 
@@ -17,7 +18,7 @@ export function PageHero(props: {
     <section className="relative overflow-hidden border-b border-border">
       {props.image && (
         <>
-          <img
+          <ResponsiveImage
             src={props.image}
             alt={props.imageAlt ?? ""}
             width={1920}
@@ -215,12 +216,7 @@ export function Testimonials() {
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((t) => (
             <figure key={t.source} className="rounded-lg border border-border bg-background p-6">
-              <div className="flex gap-1 text-primary" aria-hidden>
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-3.5 w-3.5 fill-current" />
-                ))}
-              </div>
-              <blockquote className="mt-4 text-sm leading-relaxed text-foreground">
+              <blockquote className="text-sm leading-relaxed text-foreground">
                 “{t.quote}”
               </blockquote>
               <figcaption className="mt-4 text-xs font-medium tracking-wide text-muted-foreground">
@@ -229,11 +225,8 @@ export function Testimonials() {
             </figure>
           ))}
         </div>
-        {/* Placeholder for verified Google reviews — link out rather than fabricate. */}
-        <div className="mt-8 flex flex-col items-start justify-between gap-4 rounded-lg border border-dashed border-border p-6 sm:flex-row sm:items-center">
-          <p className="text-sm text-muted-foreground">
-            Verified Google reviews from recent projects will appear here shortly.
-          </p>
+        <div className="mt-8 flex flex-col items-start justify-between gap-4 rounded-lg border border-border p-6 sm:flex-row sm:items-center">
+          <p className="text-sm text-muted-foreground">Explore more client feedback on Google.</p>
           <a
             href="https://www.google.com/search?q=1080+solutions+glasgow+reviews"
             target="_blank"
@@ -286,13 +279,14 @@ export function FeatureSplit(props: {
           )}
         </div>
         <div className={props.reverse ? "lg:order-1" : ""}>
-          <img
+          <ResponsiveImage
             src={props.image}
             alt={props.imageAlt}
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </div>

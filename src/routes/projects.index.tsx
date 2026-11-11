@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/site/ResponsiveImage";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { CtaBand, PageHero, SectionHeading } from "@/components/site/Sections";
@@ -38,13 +39,14 @@ function ProjectsPage() {
             className="group grid items-center gap-8 overflow-hidden rounded-lg border border-border bg-card lg:grid-cols-2"
           >
             <div className="relative overflow-hidden">
-              <img
+              <ResponsiveImage
                 src={whitecraigsImage}
                 alt="Dolby Atmos home cinema with star ceiling in Whitecraigs, Glasgow"
                 width={1920}
                 height={1080}
                 loading="lazy"
                 className="aspect-video h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
               />
             </div>
             <div className="p-6 sm:p-10">
@@ -72,13 +74,14 @@ function ProjectsPage() {
             />
             <div className="mt-10 grid gap-5 md:grid-cols-2">
               <div className="overflow-hidden rounded-lg border border-border bg-card">
-                <img
+                <ResponsiveImage
                   src={lightingImage}
                   alt="Whole-home smart lighting installation"
                   width={1920}
                   height={1080}
                   loading="lazy"
                   className="aspect-video w-full object-cover"
+                  sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
                 />
                 <div className="p-6">
                   <h3 className="font-display text-lg font-semibold">
@@ -91,13 +94,14 @@ function ProjectsPage() {
                 </div>
               </div>
               <div className="overflow-hidden rounded-lg border border-border bg-card">
-                <img
+                <ResponsiveImage
                   src={heroImage}
                   alt="Smart home living space with concealed AV"
                   width={1920}
                   height={1080}
                   loading="lazy"
                   className="aspect-video w-full object-cover"
+                  sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
                 />
                 <div className="p-6">
                   <h3 className="font-display text-lg font-semibold">

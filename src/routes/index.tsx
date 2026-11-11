@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/site/ResponsiveImage";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import {
@@ -71,7 +72,7 @@ function HomePage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">
-        <img
+        <ResponsiveImage
           src={heroImage}
           alt="Smart living room in a Glasgow home at dusk, with warm architectural lighting and a concealed television"
           width={1920}
@@ -197,13 +198,14 @@ function HomePage() {
             className="group relative block overflow-hidden rounded-lg border border-border"
             aria-label="View the Whitecraigs home cinema project"
           >
-            <img
+            <ResponsiveImage
               src={whitecraigsImage}
               alt="Dedicated home cinema in Whitecraigs, Glasgow with star ceiling and widescreen projection"
               width={1920}
               height={1080}
               loading="lazy"
               className="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
             />
             <span className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-sm bg-background/80 px-3 py-2 text-xs font-semibold text-foreground backdrop-blur">
               Whitecraigs, Glasgow <ArrowRight className="h-3.5 w-3.5 text-primary" aria-hidden />
@@ -219,13 +221,14 @@ function HomePage() {
             to="/home-cinema"
             className="group relative block overflow-hidden rounded-lg border border-border"
           >
-            <img
+            <ResponsiveImage
               src={cinemaImage}
               alt="Private home cinema with tiered seating and fibre-optic star ceiling"
               width={1920}
               height={1080}
               loading="lazy"
               className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:aspect-video"
+              sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
             />
             <div
               className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent"
@@ -245,13 +248,14 @@ function HomePage() {
             to="/smart-lighting-glasgow"
             className="group relative block overflow-hidden rounded-lg border border-border"
           >
-            <img
+            <ResponsiveImage
               src={lightingImage}
               alt="Architectural LED lighting and a brushed bronze keypad in a modern Glasgow kitchen"
               width={1920}
               height={1080}
               loading="lazy"
               className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:aspect-video"
+              sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
             />
             <div
               className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent"

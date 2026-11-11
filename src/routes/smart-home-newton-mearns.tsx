@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/site/ResponsiveImage";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   AreasServed,
@@ -68,7 +69,7 @@ function SmartHomeNewtonMearnsPage() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-border">
-        <img
+        <ResponsiveImage
           src={heroImage}
           alt="Whole-home automation in a modern Newton Mearns property"
           width={1920}
@@ -76,7 +77,10 @@ function SmartHomeNewtonMearnsPage() {
           fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/65 to-background" aria-hidden />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/65 to-background"
+          aria-hidden
+        />
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
           <p className="eyebrow">Newton Mearns · East Renfrewshire</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
@@ -183,26 +187,28 @@ function SmartHomeNewtonMearnsPage() {
               wireless products.
             </p>
           </div>
-          <img
+          <ResponsiveImage
             src={controlImage}
             alt="Control4 smart home panel and architectural keypad"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </section>
 
       <section className="border-t border-border bg-card/40">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
-          <img
+          <ResponsiveImage
             src={lightingImage}
             alt="Smart lighting in a contemporary kitchen"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
           <div>
             <p className="eyebrow">Lighting Control</p>
@@ -240,20 +246,23 @@ function SmartHomeNewtonMearnsPage() {
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               For an example of the standard we work to locally, our nearby Whitecraigs case study
-              shows a complete 9.4.4 dedicated cinema with Control4, JVC projection and architectural
-              lighting.
+              shows a complete 9.4.4 dedicated cinema with Control4, JVC projection and
+              architectural lighting.
             </p>
             <div className="mt-8">
-              <CtaSecondary to="/projects/whitecraigs-glasgow">View the Whitecraigs Cinema</CtaSecondary>
+              <CtaSecondary to="/projects/whitecraigs-glasgow">
+                View the Whitecraigs Cinema
+              </CtaSecondary>
             </div>
           </div>
-          <img
+          <ResponsiveImage
             src={cinemaImage}
             alt="Dedicated home cinema designed by 1080 Solutions"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </section>

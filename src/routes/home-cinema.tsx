@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/site/ResponsiveImage";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   AreasServed,
@@ -198,8 +199,8 @@ function HomeCinemaPage() {
           </div>
           <p className="mt-8 max-w-3xl text-base leading-relaxed text-muted-foreground">
             To start your Glasgow home cinema consultation, send us your room dimensions,
-            photographs or floor plans, the number of seats you would like and an indication
-            of budget. We can then discuss a practical design and the next steps.
+            photographs or floor plans, the number of seats you would like and an indication of
+            budget. We can then discuss a practical design and the next steps.
           </p>
           <div className="mt-8">
             <CtaPrimary to="/contact">Discuss Your Room and Budget</CtaPrimary>
@@ -210,13 +211,14 @@ function HomeCinemaPage() {
       {/* Case study link */}
       <section className="border-t border-border bg-card/40">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
-          <img
+          <ResponsiveImage
             src={whitecraigsImage}
             alt="9.4.4 Dolby Atmos home cinema in Whitecraigs, Glasgow"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
           <div>
             <SectionHeading eyebrow="Case Study" title="9.4.4 Dolby Atmos in Whitecraigs." />

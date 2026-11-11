@@ -46,6 +46,7 @@ const assets = {
 const executionContext = { waitUntil() {} };
 const pages = new Map();
 const failures = [];
+const responsiveAssets = new Set();
 
 function check(condition, message) {
   if (!condition) failures.push(message);
@@ -120,6 +121,21 @@ for (const url of urls) {
 
   pages.set(path, { html, title, description, canonical, schemas, nodes });
 
+  const imageCount = (html.match(/<img\b/g) ?? []).length;
+  const sources = [...html.matchAll(/<source\b[^>]*>/g)].map((match) => match[0]);
+  check(sources.length === imageCount, `${path}: every image must have a responsive source`);
+  for (const source of sources) {
+    check(source.includes('type="image/webp"'), `${path}: responsive source must use WebP`);
+    check(/sizes="[^"]+"/.test(source), `${path}: responsive source must declare sizes`);
+    const srcset = extract(source, /srcSet="([^"]+)"/i);
+    check(Boolean(srcset), `${path}: responsive source set is missing`);
+    for (const candidate of srcset.split(",")) {
+      const [asset, width] = candidate.trim().split(/\s+/);
+      check(/^[1-9]\d*w$/.test(width ?? ""), `${path}: invalid image width descriptor`);
+      if (asset) responsiveAssets.add(asset);
+    }
+  }
+
   check(response.status === 200, `${path}: must return 200`);
   check(Boolean(title), `${path}: title is missing`);
   check(title.length <= 65, `${path}: title exceeds 65 characters (${title.length})`);
@@ -161,6 +177,15 @@ for (const url of urls) {
 }
 
 const home = pages.get("/");
+check(!home?.html.includes("will appear here shortly"), "home: review placeholder must be removed");
+for (const asset of responsiveAssets) {
+  const response = await fetchWorker(asset);
+  check(response.status === 200, `${asset}: responsive image must return 200`);
+  check(
+    response.headers.get("content-type") === "image/webp",
+    `${asset}: expected WebP content type`,
+  );
+}
 const business = home?.nodes.find((node) => node["@type"] === "ProfessionalService");
 check(business?.["@id"] === `${ORIGIN}/#business`, "business @id is incorrect");
 check(business?.name === "1080 Solutions", "business name is incorrect");

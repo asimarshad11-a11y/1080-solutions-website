@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/site/ResponsiveImage";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import {
@@ -185,13 +186,14 @@ function Control4Page() {
               ))}
             </ul>
           </div>
-          <img
+          <ResponsiveImage
             src={controlImage}
             alt="Control4 touch panel and lighting keypad in a Glasgow hallway"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </section>
@@ -199,13 +201,14 @@ function Control4Page() {
       {/* Lighting & Lutron */}
       <section className="border-t border-border">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
-          <img
+          <ResponsiveImage
             src={lightingImage}
             alt="Architectural lighting and a brushed keypad in a Glasgow kitchen"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover lg:order-1"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
           <div className="lg:order-2">
             <p className="eyebrow">Lighting</p>
@@ -309,13 +312,14 @@ function Control4Page() {
             className="group relative block overflow-hidden rounded-lg border border-border"
             aria-label="Read the Whitecraigs, Glasgow home cinema case study"
           >
-            <img
+            <ResponsiveImage
               src={whitecraigsImage}
               alt="Dolby Atmos home cinema in Whitecraigs, Glasgow controlled by Control4"
               width={1920}
               height={1080}
               loading="lazy"
               className="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
             />
             <span className="absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-sm bg-background/80 px-3 py-2 text-xs font-semibold text-foreground backdrop-blur">
               Whitecraigs, Glasgow <ArrowRight className="h-3.5 w-3.5 text-primary" aria-hidden />
@@ -392,13 +396,14 @@ function Control4Page() {
               <CtaSecondary to="/data-networking-and-wifi">Networking &amp; Wi-Fi</CtaSecondary>
             </div>
           </div>
-          <img
+          <ResponsiveImage
             src={networkImage}
             alt="Structured network and AV rack installed in a Glasgow home"
             width={1920}
             height={1080}
             loading="lazy"
             className="aspect-video w-full rounded-lg border border-border object-cover"
+            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </section>

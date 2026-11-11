@@ -36,7 +36,7 @@ function installGoogleAnalytics() {
   const script = document.createElement("script");
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`;
-  script.dataset.analytics = "ga4";
+  script.dataset["analytics"] = "ga4";
   document.head.appendChild(script);
 }
 
